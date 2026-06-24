@@ -21,7 +21,9 @@ if lignes>=2:
         affichage(matrice)
 for pivot in range(min(len(matrice), len(matrice[0]))):
     elimination_gauss(matrice, pivot)
-affichage(matrice)
+    print(f"")")
+    affichage(matrice)
+    print()
 
         
 
