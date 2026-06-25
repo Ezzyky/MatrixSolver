@@ -31,7 +31,8 @@ while True:
     try:
         matrice=prenant_matrice()
     except ValueError:
-                print("Veuillez entrer un nombre valide !")
+                print("Veuillez entrer un nombre valide !(un nombre entier).")
+                print()
                 print("Appuyez sur n'importe quel bouton pour sortir...")
                 msvcrt.getch()
                 os.system("cls")
