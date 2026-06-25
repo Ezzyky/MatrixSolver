@@ -14,19 +14,25 @@ def prenant_matrice(nom="A"):
     return Matrice
 
 def affichage(matrice):
-    lignes=len(matrice)
-    colonnes=len(matrice[0])
+    lignes = len(matrice)
     for i in range(lignes):
-        for j in range(colonnes):
-
-            print(matrice[i][j],end=" ")
-        print()
+        if i == 0:
+            debut,fin="⎡", "⎤"
+        elif i == lignes-1:
+            debut, fin = "⎣", "⎦"
+        else:
+            debut,fin="⎢", "⎥"
+        print(debut, end=" ")
+        for x in matrice[i]:
+            print(x,end=" ")
+        print(fin)
 
 def elimination_gauss(matrice, pivot):
 
     lignes = len(matrice)
     colonnes = len(matrice[0])
     print("_________Opérations effectuées sur les lignes :_________")
+    print()
     for j in range(pivot + 1, lignes):
         if matrice[j][pivot] != 0:
 
