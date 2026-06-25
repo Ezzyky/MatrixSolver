@@ -112,7 +112,7 @@ while True:
     """)
             flag=0
             try:
-                matrice=prenant_matrice()
+                matrice_pour_add=prenant_matrice(nom="B")
             except ValueError:
                     print("Veuillez entrer un nombre valide !(un nombre entier).")
                     print()
@@ -121,7 +121,19 @@ while True:
                     os.system("cls")
                     flag=1
                     continue
+            os.system("cls")
             if flag!=1:
+                adition_matrice=addition(matrice,matrice_pour_add)
+                print("Matrice initiale :")
+                affichage(matrice)
+                print()
+                print("Matrice à ajouter :")    
+                affichage(matrice_pour_add)
+                print()
+                print("Résultat de l'addition :")
+                affichage(adition_matrice)
+                print("Appuyez sur n'importe quel bouton pour sortir...")
+                msvcrt.getch()
                 os.system("cls")
 
 

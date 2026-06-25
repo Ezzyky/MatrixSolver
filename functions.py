@@ -1,5 +1,5 @@
-def prenant_matrice():
-    print("Saisissez la taille de la matrice:")
+def prenant_matrice(nom="A"):
+    print(f"Saisissez la taille de la matrice {nom}:")
     
     lignes=int(input("Nombre de lignes : "))
     colonnes=int(input("Nombre de colonnes : "))
