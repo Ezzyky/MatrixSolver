@@ -146,6 +146,7 @@ while True:
             adition_matrice=addition(matrice,matrice_pour_add)
             print()
             print("Résultat de l'addition :")
+            print()
             affichage(adition_matrice)
             print("Appuyez sur n'importe quel bouton pour sortir...")
             msvcrt.getch()
