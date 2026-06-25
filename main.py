@@ -105,7 +105,11 @@ while True:
             print("Appuyez sur n'importe quel bouton pour sortir...")
             msvcrt.getch()
             os.system("cls")
-        
+
+
         if option==0:
             print("GOOD BYE!")
             sys.exit()
+        print("Appuyez sur n'importe quel bouton pour continuer...")
+        msvcrt.getch()
+        os.system("cls")
