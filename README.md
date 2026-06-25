@@ -1,10 +1,10 @@
-# 🧮 Matrice — Calcul Matriciel en Python
+#  Matrice — Calcul Matriciel en Python
 
 Un projet Python permettant de saisir, afficher et appliquer l'**élimination de Gauss** sur une matrice, avec permutation automatique des lignes pour garantir un pivot non nul.
 
 ---
 
-## 📁 Structure du projet
+##  Structure du projet
 
 ```
 matrice/
@@ -14,7 +14,7 @@ matrice/
 
 ---
 
-## ⚙️ Fonctionnalités
+##  Fonctionnalités
 
 - **Saisie interactive** — l'utilisateur entre la taille et les valeurs de la matrice
 - **Affichage formaté** — affichage clair de la matrice après chaque opération
@@ -23,7 +23,7 @@ matrice/
 
 ---
 
-## 🚀 Utilisation
+##  Utilisation
 
 ### Prérequis
 
@@ -55,7 +55,7 @@ L1 ↔ L2
 
 ---
 
-## 📌 Fonctions principales (`functions.py`)
+##  Fonctions principales (`functions.py`)
 
 | Fonction | Description |
 |---|---|
@@ -65,7 +65,7 @@ L1 ↔ L2
 
 ---
 
-## 🧠 Concepts utilisés
+##  Concepts utilisés
 
 - Listes 2D (matrices en Python)
 - Algorithmique : méthode du pivot de Gauss
@@ -73,7 +73,7 @@ L1 ↔ L2
 
 ---
 
-## 👨‍💻 Auteur
+##  Auteur
 
 **Abdellah Ezzyky** — Étudiant en Informatique Appliquée, Faculté des Sciences d'El Jadida
 
