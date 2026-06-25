@@ -22,6 +22,7 @@ def affichage(matrice):
         print()
 
 def elimination_gauss(matrice, pivot):
+    
     lignes = len(matrice)
     colonnes = len(matrice[0])
 
@@ -31,5 +32,6 @@ def elimination_gauss(matrice, pivot):
             a = matrice[j][pivot]
             p = matrice[pivot][pivot]
             print(f"L{j+1} ← {p}L{j+1} - {a}L{pivot+1}")
+
             for i in range(pivot, colonnes):
                 matrice[j][i] = matrice[j][i] * p - matrice[pivot][i] * a

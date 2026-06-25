@@ -21,6 +21,8 @@ if lignes>=2:
         print(f"L1 ​↔ L​{index+1}")
         affichage(matrice)
 for pivot in range(min(len(matrice), len(matrice[0]))):
+    if matrice[pivot][pivot] == 0:
+        continue
     elimination_gauss(matrice, pivot)
     affichage(matrice)
     print()
