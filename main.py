@@ -1,10 +1,12 @@
 from functions import *
 import msvcrt
 import os
-
+#affichage de menu
 menu()
+#input pour choisir l option
 option=int(input())
-os.system("cls")    
+os.system("cls") 
+#option 1 = echelon matrice
 if option==1:
     matrice=prenant_matrice()
     lignes=len(matrice)
@@ -38,7 +40,7 @@ if option==1:
             if index != -1:
                 matrice[pivot], matrice[index] = matrice[index], matrice[pivot]
                 print(f"L{pivot+1} ↔ L{index+1}")
-                
+
         elimination_gauss(matrice, pivot)
         print("resulta finale:")
         affichage(matrice)
@@ -47,3 +49,6 @@ if option==1:
     msvcrt.getch()
     os.system("cls")   
 menu() 
+#option 2 = 
+if option==2:
+    pass
