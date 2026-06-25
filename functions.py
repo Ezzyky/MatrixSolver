@@ -73,7 +73,7 @@ def addition(matrice1,matrice2):
         for j in range(len(matrice2[0])):
 
             matrice_add[i][j]=matrice1[i][j]+matrice2[i][j]
-            print(f"{matrice1[i][j]} - {matrice2[i][j]}  ",end="")
+            print(f"{matrice1[i][j]} + {matrice2[i][j]}  ",end="")
             print()
     return matrice_add
 def souetraction(matrice1,matrice2):
@@ -82,6 +82,6 @@ def souetraction(matrice1,matrice2):
         for j in range(len(matrice2[0])):
 
             matrice_add[i][j]=matrice1[i][j]-matrice2[i][j]
-            print(f"{matrice1[i][j]}+{matrice2[i][j]}  ",end="")
+            print(f"{matrice1[i][j]}-{matrice2[i][j]}  ",end="")
             print()
     return matrice_add

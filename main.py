@@ -171,7 +171,7 @@ while True:
             
             os.system("cls")
             lignes_B=len(matrice_pour_sost)
-            colonnes_B=len(matrice_pour_add[0])
+            colonnes_B=len(matrice_pour_sost[0])
             if len(matrice)!=lignes_B or len(matrice[0])!=colonnes_B:
                 print("Soustraction impossible : dimensions incompatibles.")
                 print("Appuyez sur n'importe quel bouton pour sortir...")
@@ -180,17 +180,19 @@ while True:
                 continue
             
             print("Matrice initiale :")
+            print()
             affichage(matrice)
             print()
-            print("Matrice à ajouter :")    
+            print("Matrice à soustraire :")
             affichage(matrice_pour_sost)
             print()
-            print("la methode:")
-            soustraction_matrice=addition(matrice,matrice_pour_sost)
+            print("La méthode :")
+            soustraction_matrice = souetraction(matrice, matrice_pour_sost)
             print()
-            print("Résultat de l'addition :")
+            print("Résultat de la soustraction :")
             print()
             affichage(soustraction_matrice)
+
             print("Appuyez sur n'importe quel bouton pour sortir...")
             msvcrt.getch()
             os.system("cls")
