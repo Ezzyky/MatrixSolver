@@ -151,7 +151,8 @@ while True:
             print("Résultat de l'addition :")
             print()
             affichage(adition_matrice)
-            
+            if all(all(x==0 for x in lignes)for lignes in adition_matrice ):
+                print("-----> La matrice est une matrice nulle!")
             print("Appuyez sur n'importe quel bouton pour sortir...")
             msvcrt.getch()
             os.system("cls")
@@ -196,8 +197,8 @@ while True:
             print("Résultat de la soustraction :")
             print()
             affichage(soustraction_matrice)
-            
-
+            if all(all(x==0 for x in lignes)for lignes in soustraction_matrice ):
+                print("-----> La matrice est une matrice nulle!")
             print("Appuyez sur n'importe quel bouton pour sortir...")
             msvcrt.getch()
             os.system("cls")
