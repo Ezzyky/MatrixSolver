@@ -31,8 +31,8 @@ while True:
     try:
         matrice=prenant_matrice()
     except ValueError:
-                print("Veuillez entrer un nombre valide !(un nombre entier).")
                 print()
+                print("Veuillez entrer un nombre valide !(un nombre entier).")
                 print("Appuyez sur n'importe quel bouton pour sortir...")
                 msvcrt.getch()
                 os.system("cls")
@@ -105,6 +105,11 @@ while True:
         #option 5 = Addition de matrices
 
         elif option==5:
+            print("""
+            =========================================================
+                              Addition de matrices
+            =========================================================
+    """)
             flag=0
             try:
                 matrice=prenant_matrice()
@@ -123,6 +128,4 @@ while True:
         elif option==0:
             print("GOOD BYE!")
             sys.exit()
-        print("Appuyez sur n'importe quel bouton pour continuer...")
-        msvcrt.getch()
         os.system("cls")
