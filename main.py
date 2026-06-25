@@ -136,7 +136,6 @@ while True:
                 os.system("cls")
                 continue
             
-                
             print("Matrice initiale :")
             affichage(matrice)
             print()
@@ -151,8 +150,7 @@ while True:
             print("Appuyez sur n'importe quel bouton pour sortir...")
             msvcrt.getch()
             os.system("cls")
-
-
+        #Quitter
         elif option==0:
             print("GOOD BYE!")
             sys.exit()
