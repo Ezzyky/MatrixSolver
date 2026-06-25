@@ -3,7 +3,7 @@ import msvcrt
 import os
 import sys
 os.system("cls") 
-#
+
 
 while True:
 
@@ -37,7 +37,7 @@ while True:
                 os.system("cls")
                 flag=1
                 continue
-    if flag!=0:
+    if flag!=1:
         #affichage de menu et input d option et clear
         os.system("cls")
         menu()
