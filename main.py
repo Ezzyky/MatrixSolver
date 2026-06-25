@@ -6,25 +6,36 @@ os.system("cls")
 
 #affichage de menu et input d option et clear
 menu()
-option=int(input())
+option=int(input("Choisissez une option : "))
 os.system("cls") 
 while True:
     #option 1 = reduction de gauss
     if option==1:
+        print("""
+=========================================================
+                 Réduction de Gauss
+=========================================================
+            """)
         #handling the Error of value
         flag=0
         try:
             matrice=prenant_matrice()
         except ValueError:
-            print("lab")
+            print("Veuillez entrer un nombre valide !")
             print("Appuyez sur n'importe quel bouton pour sortir...")
             msvcrt.getch()
             os.system("cls")
             flag=1
         if flag==0:
+            print()
             lignes=len(matrice)
             colonnes=len(matrice[0])
             os.system("cls")
+            print("""
+=========================================================
+                 Réduction de Gauss
+=========================================================
+            """)
             print("Matrice initiale :")
             affichage(matrice)
             # Permutation des lignes L1 et la première ligne dont le premier élément est non nul
@@ -72,3 +83,6 @@ while True:
     #option 2 = Méthode de Gauss-Jordan
     if option==2:
         pass
+    if option==0:
+        print("GOOD BYE!")
+        sys.exit()
