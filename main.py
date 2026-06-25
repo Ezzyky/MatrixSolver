@@ -79,10 +79,13 @@ while True:
 
     #affichage de menu et input d option et clear
     menu() 
-    option=int(input())
+    option=int(input("Choisissez une option : "))
     os.system("cls")
     #option 2 = Méthode de Gauss-Jordan
     if option==2:
+        pass
+    #option 5 = Addition de matrices
+    if option==5:
         pass
     if option==0:
         print("GOOD BYE!")

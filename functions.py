@@ -61,3 +61,10 @@ def menu():
 
 =========================================================
           """)
+def addition(matrice1,matrice2):
+    if len(matrice1)==len(matrice2) and len(matrice1[0])==len(matrice2[0]):
+        matrice_add=[[None for i in range(len(matrice2[0]))]for i in range(len(matrice2))]
+        for i in range(len(matrice1)):
+            for j in range(len(matrice2[0])):
+                matrice_add[i][j]=matrice1[i][j]+matrice2[i][j]
+    return matrice_add
