@@ -1,5 +1,6 @@
 def prenant_matrice():
     print("Saisissez la taille de la matrice:")
+    
     lignes=int(input("Nombre de lignes : "))
     colonnes=int(input("Nombre de colonnes : "))
     while lignes==0 or colonnes == 0:
@@ -25,14 +26,12 @@ def elimination_gauss(matrice, pivot):
 
     lignes = len(matrice)
     colonnes = len(matrice[0])
-
+    print("_________apres l______________")
     for j in range(pivot + 1, lignes):
         if matrice[j][pivot] != 0:
 
             a = matrice[j][pivot]
             p = matrice[pivot][pivot]
-            print("_________apres l______________")
-
             if a<0:
                 print(f"L{j+1} ← {p}L{j+1} + {a*(-1)}L{pivot+1}")
             else:
@@ -44,21 +43,21 @@ def menu():
 
     print("""
 =========================================================
-      APPLICATION D'ALGÈBRE LINÉAIRE
+             APPLICATION D'ALGÈBRE LINÉAIRE
 =========================================================
 
-1 - Réduction de Gauss
-2 - Méthode de Gauss-Jordan
-3 - Calcul du déterminant
-4 - Inverse d'une matrice
-5 - Addition de matrices
-6 - Soustraction de matrices
-7 - Multiplication de matrices
-8 - Multiplication par un scalaire
-9 - Transposée d'une matrice
-10 - Rang d'une matrice
-11 - Résolution d'un système linéaire
-0 - Quitter
+            1 - Réduction de Gauss
+            2 - Méthode de Gauss-Jordan
+            3 - Calcul du déterminant
+            4 - Inverse d'une matrice
+            5 - Addition de matrices
+            6 - Soustraction de matrices
+            7 - Multiplication de matrices
+            8 - Multiplication par un scalaire
+            9 - Transposée d'une matrice
+            10 - Rang d'une matrice
+            11 - Résolution d'un système linéaire
+            0 - Quitter
 
 =========================================================
           """)

@@ -1,17 +1,27 @@
 from functions import *
 import msvcrt
 import os
+os.system("cls") 
+
 #affichage de menu et input d option et clear
 menu()
 option=int(input())
 os.system("cls") 
+
 #option 1 = reduction de gauss
 if option==1:
-    matrice=prenant_matrice()
+    try:
+        matrice=prenant_matrice()
+    except ValueError:
+        print("lab")
+        print("Appuyez sur n'importe quel bouton pour sortir...")
+        msvcrt.getch()
+        os.system("cls")
+        menu()
     lignes=len(matrice)
     colonnes=len(matrice[0])
+    os.system("cls")
     print("Matrice initiale :")
-    print()
     affichage(matrice)
     # Permutation des lignes L1 et la première ligne dont le premier élément est non nul
     index=0
@@ -41,12 +51,16 @@ if option==1:
                 print(f"L{pivot+1} ↔ L{index+1}")
 
         elimination_gauss(matrice, pivot)
-        print("resulta finale:")
         affichage(matrice)
         print()
-    print("entrer wzged")
+    #affichge de resulta fianle
+    print("resulta finale:")
+    affichage(matrice)
+    print()
+    print("Appuyez sur n'importe quel bouton pour sortir...")
     msvcrt.getch()
-    os.system("cls")   
+    os.system("cls") 
+  
 #affichage de menu et input d option et clear
 menu() 
 option=int(input())
