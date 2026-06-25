@@ -122,6 +122,14 @@ while True:
                     flag=1
                     continue
             os.system("cls")
+            lignes_B=len(matrice_pour_add)
+            colonnes_B=len(matrice_pour_add[0])
+            if len(matrice)!=lignes_B or len(matrice[0])==colonnes_B:
+                print("Addition impossible : dimensions incompatibles.")
+                print("Appuyez sur n'importe quel bouton pour sortir...")
+                msvcrt.getch()
+                os.system("cls")
+                continue
             if flag!=1:
                 
                 print("Matrice initiale :")
