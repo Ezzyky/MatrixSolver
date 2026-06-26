@@ -1,4 +1,8 @@
+from matrice_io import *
 from functions import *
+from menu_txtes import *
+from ALU import *
+
 import msvcrt
 import os
 import sys
@@ -7,26 +11,11 @@ os.system("cls")
 
 while True:
 
-    print("""
-            =========================================================
-                BIENVENUE DANS LE PROGRAMME D'ALGÈBRE LINÉAIRE
-            =========================================================
-
-            Ce programme permet d'effectuer plusieurs opérations sur
-            les matrices et les systèmes linéaires.
-
-            Veuillez d'abord saisir la matrice initiale, puis choisir
-            l'opération souhaitée dans le menu suivant.
-
-    """)
+    home()
     print("Appuyez sur n'importe quel bouton pour contune...")
     msvcrt.getch()
     os.system("cls")
-    print("""
-            =========================================================
-                    Veuillez entrer la matrice initiale.
-            =========================================================
-    """)
+    titre("Veuillez entrer la matrice initiale.")
     flag=0
     try:
         matrice=prenant_matrice()
@@ -53,14 +42,10 @@ while True:
 
 
         #option 1 = reduction de gauss
-        if option==1:
+        if option==66:
                 lignes=len(matrice)
                 colonnes=len(matrice[0])
-                print("""
-    =========================================================
-                    Réduction de Gauss
-    =========================================================
-                """)
+                titre("   Réduction de Gauss")
                 print("Matrice initiale :")
                 affichage(matrice)
                 # Permutation des lignes L1 et la première ligne dont le premier élément est non nul
@@ -119,12 +104,9 @@ while True:
         elif option==4:
              pass
         
-        #option 5 = Addition de matrices
-        elif option==5:
-            print("""
-            =========================================================
-                              Addition de matrices
-            =========================================================""")
+        #option 1 = Addition 
+        elif option==1:
+            titre("Addition de matrices.")
             try:
                 matrice_pour_add=prenant_matrice(nom="B")
             except ValueError:
@@ -165,8 +147,8 @@ while True:
             msvcrt.getch()
             os.system("cls")
 
-        #option 6 = Soustraction de matrices
-        elif option==6:
+        #option 2 = Soustraction de matrices
+        elif option==2:
             print("""
             =========================================================
                               Soustraction de matrices
