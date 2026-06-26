@@ -26,3 +26,12 @@ def souetraction(matrice1,matrice2):
             print(f"{matrice1[i][j]}-{matrice2[i][j]}  ",end="")
             print()
     return matrice_add
+
+def Transpose(matrice):
+    lignes=len(matrice)
+    colones=len(matrice[0])
+    matrice_Transpose=[[None for i in range(lignes)]for i in range(colones)]
+    for i in range(lignes):
+        for j in range(colones):
+            matrice_Transpose[j][i]=matrice[i][j]
+    return matrice_Transpose

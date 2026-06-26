@@ -16,6 +16,7 @@ def prenant_matrice(nom="A"):
 def affichage(matrice):
     lignes =len(matrice)
     for i in range(lignes):
+
         if i==0:
             debut,fin="⎡", "⎤"
         elif i==lignes-1:

@@ -131,13 +131,19 @@ while True:
             print()
             affichage(matrice_multipli_scalaire)
             clear_avec_msg()
-             
-        
         
         #option 5 = Transposée
         elif option==5:
-             pass
-
+             titre("Transposée")
+             print("Matrice initiale :")
+             print()
+             affichage(matrice)
+             matrice_Transpose=Transpose(matrice)
+             print("Résultat de la transposition :")
+             print()
+             affichage(matrice_Transpose)
+             print()
+             clear_avec_msg()
 
         #option 6 = reduction de gauss
         elif option==6:
