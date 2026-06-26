@@ -36,8 +36,9 @@ while True:
         if option==6:
                 lignes=len(matrice)
                 colonnes=len(matrice[0])
-                titre("   Réduction de Gauss")
+                titre("       Réduction de Gauss")
                 print("Matrice initiale :")
+                print()
                 affichage(matrice)
                 # Permutation des lignes L1 et la première ligne dont le premier élément est non nul
                 index=0
@@ -55,19 +56,17 @@ while True:
                             matrice[index][i]=temp
                         print(f"L1 ​↔ L​{index+1}")
                         affichage(matrice)
-                    for pivot in range(0,min(len(matrice), len(matrice[0]))):
+                    for pivot in range(min(lignes, colonnes)):
                         if matrice[pivot][pivot] == 0:
-                            index = -1
                             for i in range(pivot + 1, lignes):
                                 if matrice[i][pivot] != 0:
-                                    index = i
+                                    matrice[pivot], matrice[i] = matrice[i], matrice[pivot]
+                                    print(f"\nL{pivot+1} ↔ L{i+1}")
                                     break
-                            if index != -1:
-                                matrice[pivot], matrice[index] = matrice[index], matrice[pivot]
-                                print(f"L{pivot+1} ↔ L{index+1}")
                         elimination_gauss(matrice, pivot)
-                        affichage(matrice)
-                        print()
+                        if pivot < min(lignes, colonnes) - 1:
+                            affichage(matrice)
+                            print()
                 else:
                     print()
                     print("La matrice contient une seule ligne. Aucune élimination n'est nécessaire.")
@@ -75,6 +74,7 @@ while True:
                     continue
                 #affichge de resulta fianle
                 print("resulta finale:")
+                print()
                 affichage(matrice)
                 print()
                 clear_avec_msg()
