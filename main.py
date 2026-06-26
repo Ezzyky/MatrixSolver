@@ -6,10 +6,11 @@ from utils import *
 import os
 import sys
 os.system("cls") 
-while True:
 
-    home()
-    clear_avec_msg()
+home()
+clear_avec_msg()
+historique=[]
+while True:
     titre("Veuillez entrer la matrice initiale.")
     flag=0
     try:
@@ -35,6 +36,7 @@ while True:
         
         #option 1 = Addition 
         if option==1:
+            historique.append("Addition")
             titre("Addition de matrices.")
             try:
                 matrice_pour_add=prenant_matrice(nom="B")
@@ -72,6 +74,7 @@ while True:
         
         #option 2 = Soustraction
         elif option==2:
+            historique.append("Soustraction")
             titre("Soustraction de matrices")
             try:
                 matrice_pour_sost=prenant_matrice(nom="B")
@@ -113,6 +116,7 @@ while True:
         
         #option 4 = Multiplication par scalaire
         elif option==4:
+            historique.append("Multiplication par scalaire")
             titre("Multiplication par scalaire")
             try:
                 scalaire=int(input("Veuillez entrer le scalaire à multiplier par la matrice: "))
@@ -133,7 +137,9 @@ while True:
             clear_avec_msg()
         
         #option 5 = Transposée
+            
         elif option==5:
+             historique.append("Transposée")
              titre("Transposée")
              print("Matrice initiale :")
              print()
@@ -147,6 +153,7 @@ while True:
 
         #option 6 = reduction de gauss
         elif option==6:
+                historique.append("reduction de gauss")
                 lignes=len(matrice)
                 colonnes=len(matrice[0])
                 titre("Réduction de Gauss")
@@ -156,25 +163,14 @@ while True:
                 # Permutation des lignes L1 et la première ligne dont le premier élément est non nul
                 index=0
                 if lignes>=2:
-                    if matrice[0][0]==0:
-
-                        for i in range(lignes):
-                            if matrice[i][0]!=0:
-                                index=i
-                                break
-
-                        for i in range(colonnes):
-                            temp=matrice[0][i]
-                            matrice[0][i]=matrice[index][i]
-                            matrice[index][i]=temp
-                        print(f"L1 ​↔ L​{index+1}")
-                        affichage(matrice)
+                    
                     for pivot in range(min(lignes, colonnes)):
                         if matrice[pivot][pivot] == 0:
                             for i in range(pivot + 1, lignes):
                                 if matrice[i][pivot] != 0:
                                     matrice[pivot], matrice[i] = matrice[i], matrice[pivot]
                                     print(f"\nL{pivot+1} ↔ L{i+1}")
+                                    affichage(matrice)
                                     break
                         elimination_gauss(matrice, pivot)
                         if pivot < min(lignes, colonnes) - 1:
@@ -194,7 +190,15 @@ while True:
 
 
 
-        
+        elif option == 25:
+            titre("Historique")
+            if len(historique) == 0:
+                print("Aucune opération effectuée.")
+            else:
+                for i, operation in enumerate(historique, start=1):
+                    print(f"{i}. {operation}")
+            clear_avec_msg()
+
         #option 0 = Quitter
         elif option==0:
             titre("""          Merci d'avoir utilisé notre application !

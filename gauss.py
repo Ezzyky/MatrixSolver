@@ -4,7 +4,7 @@ def elimination_gauss(matrice, pivot):
     lignes = len(matrice)
     colonnes = len(matrice[0])
     print("_________Opérations effectuées sur les lignes :_________")
-    
+    print()
     for j in range(pivot + 1, lignes):
         if matrice[j][pivot] != 0:
 

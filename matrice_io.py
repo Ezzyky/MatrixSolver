@@ -27,3 +27,21 @@ def affichage(matrice):
         for x in matrice[i]:
             print(x,end=" ")
         print(fin)
+
+# i dont need it for now
+def swap(matrice):
+    lignes=len(matrice)
+    colonnes=len(matrice[0])
+    if matrice[0][0]==0:
+        for i in range(lignes):
+            if matrice[i][0]!=0:
+                index=i
+                break
+        for i in range(colonnes):
+            temp=matrice[0][i]
+            matrice[0][i]=matrice[index][i]
+            matrice[index][i]=temp
+        print("_________Opérations effectuées sur les lignes :_________")
+        print()
+        print(f"L1 ​↔ L​{index+1}")
+    return matrice
