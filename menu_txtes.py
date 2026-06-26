@@ -13,7 +13,7 @@ def menu():
     [5]. Transposée
 
 
-[3] Propriétés et analyse                         [4] Algèbre linéaire avancée
+[C] Propriétés et analyse                         [D] Algèbre linéaire avancée
    [10]. Déterminant                                    [16]. Valeurs propres
    [11]. Inverse                                        [17]. Vecteurs propres
    [12]. Trace                                          [18]. Noyau Ker(A)
@@ -22,7 +22,7 @@ def menu():
    [15]. Vérifier diagonale                             [21]. SVD
 
 
-[5] Outils
+[E] Outils
    [22]. Générer matrice aléatoire
    [23]. Sauvegarder                                [0] Quitter
    [24]. Charger
@@ -48,3 +48,9 @@ def titre(b):
                         {b}
             =========================================================
     """)
+def clear(a="Appuyez sur n'importe quel bouton pour sortir..."):
+    import msvcrt
+    import os
+    print(a)
+    msvcrt.getch()
+    os.system("cls")

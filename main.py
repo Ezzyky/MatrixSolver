@@ -12,9 +12,7 @@ os.system("cls")
 while True:
 
     home()
-    print("Appuyez sur n'importe quel bouton pour contune...")
-    msvcrt.getch()
-    os.system("cls")
+    clear()
     titre("Veuillez entrer la matrice initiale.")
     flag=0
     try:
@@ -22,9 +20,7 @@ while True:
     except ValueError:
                 print()
                 print("Veuillez entrer un nombre valide !(un nombre entier).")
-                print("Appuyez sur n'importe quel bouton pour sortir...")
-                msvcrt.getch()
-                os.system("cls")
+                clear()
                 flag=1
                 continue
     if flag!=1:
@@ -34,14 +30,12 @@ while True:
         try:
             option = int(input("Choisissez une option : "))
         except ValueError:
-            print("Option invalide.")
-            msvcrt.getch()
-            os.system("cls")
+            clear("Option invalide.")
             continue
         os.system("cls") 
 
 
-        #option 1 = reduction de gauss
+        #option 6 = reduction de gauss
         if option==66:
                 lignes=len(matrice)
                 colonnes=len(matrice[0])
@@ -80,17 +74,13 @@ while True:
                 else:
                     print()
                     print("La matrice contient une seule ligne. Aucune élimination n'est nécessaire.")
-                    print("Appuyez sur n'importe quel bouton pour sortir...")
-                    msvcrt.getch()
-                    os.system("cls")
+                    clear()
                     continue
                 #affichge de resulta fianle
                 print("resulta finale:")
                 affichage(matrice)
                 print()
-                print("Appuyez sur n'importe quel bouton pour sortir...")
-                msvcrt.getch()
-                os.system("cls")
+                clear()
 
         #option 2 = Méthode de Gauss-Jordan
         elif option==2:
@@ -112,9 +102,7 @@ while True:
             except ValueError:
                     print("Veuillez entrer un nombre valide !(un nombre entier).")
                     print()
-                    print("Appuyez sur n'importe quel bouton pour sortir...")
-                    msvcrt.getch()
-                    os.system("cls")
+                    clear()
                     continue
             
             os.system("cls")
@@ -122,9 +110,7 @@ while True:
             colonnes_B=len(matrice_pour_add[0])
             if len(matrice)!=lignes_B or len(matrice[0])!=colonnes_B:
                 print("Addition impossible : dimensions incompatibles.")
-                print("Appuyez sur n'importe quel bouton pour sortir...")
-                msvcrt.getch()
-                os.system("cls")
+                clear()
                 continue
             
             print("Matrice initiale :")
@@ -143,9 +129,7 @@ while True:
             affichage(adition_matrice)
             if all(all(x==0 for x in lignes)for lignes in adition_matrice ):
                 print("-----> La matrice est une matrice nulle!")
-            print("Appuyez sur n'importe quel bouton pour sortir...")
-            msvcrt.getch()
-            os.system("cls")
+            clear()
 
         #option 2 = Soustraction de matrices
         elif option==2:
@@ -159,19 +143,15 @@ while True:
             except ValueError:
                     print("Veuillez entrer un nombre valide !(un nombre entier).")
                     print()
-                    print("Appuyez sur n'importe quel bouton pour sortir...")
-                    msvcrt.getch()
-                    os.system("cls")
+                    clear()
                     continue
             
             os.system("cls")
             lignes_B=len(matrice_pour_sost)
             colonnes_B=len(matrice_pour_sost[0])
             if len(matrice)!=lignes_B or len(matrice[0])!=colonnes_B:
-                print("Soustraction impossible : dimensions incompatibles.")
-                print("Appuyez sur n'importe quel bouton pour sortir...")
-                msvcrt.getch()
-                os.system("cls")
+                print("----->Soustraction impossible : dimensions incompatibles.")
+                clear()
                 continue
             
             print("Matrice initiale :")
@@ -190,9 +170,7 @@ while True:
             affichage(soustraction_matrice)
             if all(all(x==0 for x in lignes)for lignes in soustraction_matrice ):
                 print("-----> La matrice est une matrice nulle!")
-            print("Appuyez sur n'importe quel bouton pour sortir...")
-            msvcrt.getch()
-            os.system("cls")
+            clear()
 
         #option 7 = Multiplication de matrices
         elif option==7:
