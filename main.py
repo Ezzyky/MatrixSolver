@@ -11,17 +11,8 @@ home()
 clear_avec_msg()
 historique=[]
 while True:
-    titre("Veuillez entrer la matrice initiale.")
-    flag=0
-    try:
-        matrice=prenant_matrice()
-    except ValueError:
-                print()
-                print("Veuillez entrer un nombre valide !(un nombre entier).")
-                clear_avec_msg()
-                flag=1
-                continue
-    if flag!=1:
+    
+    
         #affichage de menu et input d option et clear
         os.system("cls")
         menu()
@@ -33,9 +24,10 @@ while True:
         os.system("cls") 
 
         
-        
         #option 1 = Addition 
         if option==1:
+            matrice=demander_matrice()    
+            clear_avec_msg()        
             historique.append("Addition")
             titre("Addition de matrices.")
             try:
@@ -74,6 +66,8 @@ while True:
         
         #option 2 = Soustraction
         elif option==2:
+            matrice=demander_matrice()
+            clear_avec_msg()  
             historique.append("Soustraction")
             titre("Soustraction de matrices")
             try:
@@ -116,6 +110,8 @@ while True:
         
         #option 4 = Multiplication par scalaire
         elif option==4:
+            matrice=demander_matrice()
+            clear_avec_msg()  
             historique.append("Multiplication par scalaire")
             titre("Multiplication par scalaire")
             try:
@@ -139,20 +135,23 @@ while True:
         #option 5 = Transposée
             
         elif option==5:
-             historique.append("Transposée")
-             titre("Transposée")
-             print("Matrice initiale :")
-             print()
-             affichage(matrice)
-             matrice_Transpose=Transpose(matrice)
-             print("Résultat de la transposition :")
-             print()
-             affichage(matrice_Transpose)
-             print()
-             clear_avec_msg()
+            matrice=demander_matrice()
+            clear_avec_msg()  
+            historique.append("Transposée")
+            titre("Transposée")
+            print("Matrice initiale :")
+            print()
+            affichage(matrice)
+            matrice_Transpose=Transpose(matrice)
+            print("Résultat de la transposition :")
+            print()
+            affichage(matrice_Transpose)
+            print()
+            clear_avec_msg()
 
         #option 6 = reduction de gauss
         elif option==6:
+                matrice=demander_matrice()
                 historique.append("reduction de gauss")
                 lignes=len(matrice)
                 colonnes=len(matrice[0])
