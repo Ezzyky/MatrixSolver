@@ -27,6 +27,19 @@ def souetraction(matrice1,matrice2):
             print()
     return matrice_add
 
+def multiplication(matrice1,matrice2):
+            if len(matrice1[0]) != len(matrice2):
+                raise ValueError
+
+            matrice_multi=[[0 for i in range(len(matrice2[0]))]for i in range(len(matrice1))]
+            for i in range(len(matrice1)):
+                for j in range(len(matrice2[0])):
+                    for k in range(len(matrice2)):
+                        matrice_multi[i][j] += matrice1[i][k] * matrice2[k][j]
+                        print(f"{matrice1[i][k]} X {matrice2[k][j]}  ",end="")
+                    print()
+            return matrice_multi
+
 def Transpose(matrice):
     lignes=len(matrice)
     colones=len(matrice[0])

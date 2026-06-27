@@ -6,12 +6,13 @@ from utils import *
 import os
 import sys
 os.system("cls") 
-
+#la premire page 
 home()
 clear_avec_msg()
+
+#un lise pour l'option 25 
 historique=[]
 while True:
-    
     
         #affichage de menu et input d option et clear
         os.system("cls")
@@ -23,15 +24,14 @@ while True:
             continue
         os.system("cls") 
 
-        
         #option 1 = Addition 
         if option==1:
-            matrice=demander_matrice()    
-            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")        
+            matrice=demander_matrice() 
+            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")         
             historique.append("Addition")
             titre("Addition de matrices.")
             try:
-                matrice_pour_add=prenant_matrice(nom="B")
+                matrice_pour_add=prenant_matrice("B")
             except ValueError:
                     print("Veuillez entrer un nombre valide !(un nombre entier).")
                     print()
@@ -67,7 +67,7 @@ while True:
         #option 2 = Soustraction
         elif option==2:
             matrice=demander_matrice()
-            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")  
+            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             historique.append("Soustraction")
             titre("Soustraction de matrices")
             try:
@@ -106,12 +106,48 @@ while True:
             
         #option 3 = Multiplication 
         elif option==3:
-             pass
+            matrice=demander_matrice()
+            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
+            historique.append("Multiplication")
+            titre("Multiplication")
+            try:
+                matrice_pour_m=prenant_matrice("B")
+            except ValueError:
+                    print("Veuillez entrer un nombre valide !(un nombre entier).")
+                    print()
+                    clear_avec_msg()
+                    continue
+            
+            print("Matrice initiale A :")
+            print()
+            affichage(matrice)
+            print()
+            print("Matrice à multiplier B :")
+            print()
+            affichage(matrice_pour_m)
+            print()
+            print("Calcul de la Multiplication par le matrice B :")
+            print()
+            try:
+                matrice_multiple_par_Matrice=multiplication(matrice,matrice_pour_m)
+            except ValueError:
+                 print("Multiplication impossible : le nombre de colonnes de la première matrice doit être égal au nombre de lignes de la deuxième.")
+                 print()
+                 clear_avec_msg()
+                 continue
+            print( "Résultat de la multiplication")
+            print()
+            affichage(matrice_multiple_par_Matrice)
+            print()
+            if all(all(x==0 for x in lignes)for lignes in matrice_multiple_par_Matrice ):
+                print("-----> La matrice est une matrice nulle!")
+            clear_avec_msg()
+
         
         #option 4 = Multiplication par scalaire
         elif option==4:
             matrice=demander_matrice()
-            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")  
+            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             historique.append("Multiplication par scalaire")
             titre("Multiplication par scalaire")
             try:
@@ -136,7 +172,7 @@ while True:
             
         elif option==5:
             matrice=demander_matrice()
-            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")  
+            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             historique.append("Transposée")
             titre("Transposée")
             print("Matrice initiale :")
@@ -151,7 +187,8 @@ while True:
 
         #option 6 = reduction de gauss
         elif option==6:
-                matrice=demander_matrice("Appuyez sur n'importe quel bouton pour contune...")
+                matrice=demander_matrice()
+                clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
                 historique.append("reduction de gauss")
                 lignes=len(matrice)
                 colonnes=len(matrice[0])
@@ -186,8 +223,6 @@ while True:
                 affichage(matrice)
                 print()
                 clear_avec_msg()
-
-
 
         elif option == 25:
             titre("Historique")

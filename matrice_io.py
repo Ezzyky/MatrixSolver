@@ -28,16 +28,18 @@ def affichage(matrice):
             print(x,end=" ")
         print(fin)
 
-from menu_txtes import titre
+from menu_txtes import *
+from utils import *
 def demander_matrice():
     titre("Veuillez entrer la matrice initiale.")
     while True:
         try:
-            return prenant_matrice()
+             return prenant_matrice()
         except ValueError:
             print()
             print("Veuillez entrer un nombre valide (un entier).")
-            
+
+    
 # i dont need it for now
 def swap(matrice):
     lignes=len(matrice)
