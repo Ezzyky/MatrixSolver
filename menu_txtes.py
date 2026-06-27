@@ -1,5 +1,4 @@
 def menu():
-
     print("""
                 =========================================================
                               APPLICATION D'ALGÈBRE LINÉAIRE
@@ -23,10 +22,10 @@ def menu():
 
 
 [E] Outils
-   [22]. Générer matrice aléatoire
-   [23]. Sauvegarder                                [0] Quitter
-   [24]. Charger
-   [25]. Historique
+   [22]. Générer matrice aléatoire                  
+   [24]. Charger                                    [26]. Infos
+   [23]. Sauvegarder                                [0]. Quitter   
+   [25]. Historique 
           """)
 
 def home():
