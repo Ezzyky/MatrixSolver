@@ -1,8 +1,8 @@
 def menu():
     print("""
                 =========================================================
-                              APPLICATION D'ALGÈBRE LINÉAIRE
-                 =========================================================
+                               APPLICATION D'ALGÈBRE LINÉAIRE
+                =========================================================
 
 [A] Opérations sur les matrices                   [B] Réduction et résolution
     [1]. Addition                                     [6]. Réduction de Gauss
@@ -30,9 +30,9 @@ def menu():
 
 def home():
      print("""
-            =========================================================
-                BIENVENUE DANS LE PROGRAMME D'ALGÈBRE LINÉAIRE
-            =========================================================
+            ==========================================================
+                 BIENVENUE DANS LE PROGRAMME D'ALGÈBRE LINÉAIRE
+            ==========================================================
 
             Ce programme permet d'effectuer plusieurs opérations sur
             les matrices et les systèmes linéaires.
