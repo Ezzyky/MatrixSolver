@@ -57,3 +57,11 @@ def swap(matrice):
         print()
         print(f"L1 ​↔ L​{index+1}")
     return matrice
+
+def trace(matrice):
+    if len(matrice)!=len(matrice[0]):
+        raise ValueError
+    t=0
+    for i in range(len(matrice)):
+        t+=matrice[i][i]
+    return t

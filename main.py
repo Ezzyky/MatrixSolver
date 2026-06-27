@@ -223,6 +223,26 @@ while True:
                 affichage(matrice)
                 print()
                 clear_avec_msg()
+        #option 12 : trace
+        elif option==12:
+            matrice=demander_matrice()
+            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
+            try:
+                trace(matrice)
+            except ValueError:
+                print("La matrice doit être carrée.")
+                print()
+                clear_avec_msg()
+                continue
+            titre("Trace")
+            historique.append("Trace")
+            print("Matrice initiale :")
+            print()
+            affichage(matrice)
+            print()
+            print("Résultat de la trace :")
+            print("Tr(A)=",trace(matrice))
+            clear_avec_msg()
 
         elif option == 25:
             titre("Historique")
