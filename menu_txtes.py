@@ -41,6 +41,26 @@ def home():
             l'opération souhaitée dans le menu suivant.
 
     """)
+def infos():
+    print("""
+        Nom            : Abdellah
+        Nationalité    : Marocaine
+        Statut         : Étudiant en informatique
+
+        Description :
+        Ce programme a été développé en Python dans le cadre d'un
+        projet d'algèbre linéaire. Il permet d'effectuer plusieurs
+        opérations sur les matrices et les systèmes linéaires.
+        i start at     : Jun 24, 2026
+        i end at       : _
+
+        Contact :
+        E-mail         : Abdellahezzyky@gmail.com
+        GitHub         : https://github.com/EZZYKY
+        linkedin       : www.linkedin.com/in/abdellah-ezzyky-92b09a326
+        Version        : 1.0
+        Langage        : Python
+""")
 def titre(b):
     print("="*60)
     print(b.center(60))

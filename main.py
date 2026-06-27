@@ -253,6 +253,10 @@ while True:
                     print(f"{i}. {operation}")
             clear_avec_msg()
 
+        elif option==26:
+             titre("INFOS")
+             infos()
+             clear_avec_msg()
         #option 0 = Quitter
         elif option==0:
             titre("""          Merci d'avoir utilisé notre application !
