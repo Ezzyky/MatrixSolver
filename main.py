@@ -26,7 +26,7 @@ while True:
 
         #option 1 = Addition 
         if option==1:
-            matrice=demander_matrice() 
+            matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")         
             historique.append("Addition")
             titre("Addition de matrices.")
@@ -264,3 +264,4 @@ while True:
             titre("""          Merci d'avoir utilisé notre application !
                     À bientôt !  Au revoir !""")
             sys.exit()
+        os.system("cls")

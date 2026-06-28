@@ -1,17 +1,35 @@
+from menu_txtes import *
+from utils import *
+
+#ajout un exception pour les errors
+class MatrixSizeError(Exception):
+    pass
+
 def prenant_matrice(nom="A"):
     print(f"Saisissez la taille de la matrice {nom}:")
     
     lignes=int(input("Nombre de lignes : "))
     colonnes=int(input("Nombre de colonnes : "))
-    while lignes==0 or colonnes == 0:
-        print("Erreur : le nombre de lignes et de colonnes doit être supérieur à 0.")
-        lignes=int(input("Nombre de lignes : "))
-        colonnes=int(input("Nombre de colonnes : "))
+    if lignes<=0 or colonnes<=0:
+       raise MatrixSizeError("Le nombre de lignes et de colonnes doit être strictement positif.")
     Matrice=[[None for i in range(colonnes)]for i in range (lignes)]
     for i in range(lignes):
         for j in range (colonnes):
             Matrice[i][j]=int(input(f"M[{i+1}][{j+1}] = "))
-    return Matrice
+        return Matrice
+#to exept the error out fo size tables
+def demander_matrice():
+    
+    while True:
+        titre("Veuillez entrer la matrice initiale.")
+        try:
+             return prenant_matrice()
+        except ValueError:
+            print("Veuillez entrer un nombre valide (un entier).")
+            clear_avec_msg()
+        except MatrixSizeError as e:
+            print(e)
+            clear_avec_msg()
 
 def affichage(matrice):
     lignes =len(matrice)
@@ -28,16 +46,6 @@ def affichage(matrice):
             print(x,end=" ")
         print(fin)
 
-from menu_txtes import *
-from utils import *
-def demander_matrice():
-    titre("Veuillez entrer la matrice initiale.")
-    while True:
-        try:
-             return prenant_matrice()
-        except ValueError:
-            print()
-            print("Veuillez entrer un nombre valide (un entier).")
 
     
 # i dont need it for now
