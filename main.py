@@ -143,7 +143,6 @@ while True:
                 print("-----> La matrice est une matrice nulle!")
             clear_avec_msg()
 
-        
         #option 4 = Multiplication par scalaire
         elif option==4:
             matrice=demander_matrice()
@@ -168,8 +167,7 @@ while True:
             affichage(matrice_multipli_scalaire)
             clear_avec_msg()
         
-        #option 5 = Transposée
-            
+        #option 5 = Transposée    
         elif option==5:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
@@ -223,6 +221,7 @@ while True:
                 affichage(matrice)
                 print()
                 clear_avec_msg()
+        
         #option 12 : trace
         elif option==12:
             matrice=demander_matrice()
@@ -243,7 +242,8 @@ while True:
             print("Résultat de la trace :")
             print("Tr(A)=",trace(matrice))
             clear_avec_msg()
-
+        
+        #option 25 : historique
         elif option == 25:
             titre("Historique")
             if len(historique) == 0:
@@ -253,13 +253,14 @@ while True:
                     print(f"{i}. {operation}")
             clear_avec_msg()
 
+        #infos
         elif option==26:
              titre("INFOS")
              infos()
              clear_avec_msg()
+        
         #option 0 = Quitter
         elif option==0:
             titre("""          Merci d'avoir utilisé notre application !
                     À bientôt !  Au revoir !""")
             sys.exit()
-        os.system("cls")

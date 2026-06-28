@@ -42,7 +42,7 @@ def home():
 
     """)
 def infos():
-    print("""
+    print(f"""
         Nom            : Abdellah
         Nationalité    : Marocaine
         Statut         : Étudiant en informatique
