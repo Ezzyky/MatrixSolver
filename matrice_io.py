@@ -10,13 +10,14 @@ def prenant_matrice(nom="A"):
     
     lignes=int(input("Nombre de lignes : "))
     colonnes=int(input("Nombre de colonnes : "))
+
     if lignes<=0 or colonnes<=0:
        raise MatrixSizeError("Le nombre de lignes et de colonnes doit être strictement positif.")
     Matrice=[[None for i in range(colonnes)]for i in range (lignes)]
     for i in range(lignes):
         for j in range (colonnes):
             Matrice[i][j]=int(input(f"M[{i+1}][{j+1}] = "))
-        return Matrice
+    return Matrice
 #to exept the error out fo size tables
 def demander_matrice():
     
@@ -34,7 +35,6 @@ def demander_matrice():
 def affichage(matrice):
     lignes =len(matrice)
     for i in range(lignes):
-
         if i==0:
             debut,fin="⎡", "⎤"
         elif i==lignes-1:
