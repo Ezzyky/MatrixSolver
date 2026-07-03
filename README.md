@@ -1,4 +1,6 @@
-<img src="matrix.ico" alt="Matrice icon" width="48" height="48" />
+<div style="text-align: center;">
+    <img src="matrix.ico" alt="Matrice icon" width="120" height="120">
+</div>
 
 # Matrice
 
