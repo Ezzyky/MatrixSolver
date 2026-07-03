@@ -1,5 +1,5 @@
 from menu_txtes import *
-from utils import *
+from utils import clear_avec_msg
 import sys
 #ajout un exception pour les errors
 class MatrixSizeError(Exception):

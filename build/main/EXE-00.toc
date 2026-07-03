@@ -3,7 +3,9 @@
  True,
  False,
  False,
- 'C:\\Users\\Pc\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\PyInstaller\\bootloader\\images\\icon-console.ico',
+ ["C:\\Users\\Pc\\OneDrive - Ministere de l'education nationale, du "
+  'préscolaire et des sports\\Documents\\PROGRAMATION '
+  'git\\matrice\\matrix.ico'],
  None,
  False,
  False,
@@ -120,7 +122,7 @@
  [],
  False,
  False,
- 1783039926,
+ 1783041712,
  [('run.exe',
    'C:\\Users\\Pc\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\run.exe',
    'EXECUTABLE')],

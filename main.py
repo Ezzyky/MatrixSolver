@@ -6,6 +6,7 @@ from utils import *
 import os
 import sys
 
+
 #la premire page 
 home()
 clear_avec_msg()

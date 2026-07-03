@@ -5,4 +5,3 @@ def clear_avec_msg(msg="Appuyez sur n'importe quel bouton pour sortir..."):
     print(msg)
     input()
     os.system("cls" if os.name == "nt" else "clear")
-
