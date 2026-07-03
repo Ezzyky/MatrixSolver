@@ -1,6 +1,5 @@
 
 def elimination_gauss(matrice:list[int], pivot:int)->None:
-
     lignes = len(matrice)
     colonnes = len(matrice[0])
     print("_________Opérations effectuées sur les lignes :_________")

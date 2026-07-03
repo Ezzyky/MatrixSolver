@@ -22,11 +22,10 @@ def menu()->None:
 
 
 [E] Outils
-   [22]. Générer matrice aléatoire                  
-   [24]. Charger                                    [26]. Infos
-   [23]. Sauvegarder                                [0]. Quitter   
-   [25]. Historique 
-          """)
+   [22]. Historique                  
+   [23]. Infos                                   
+   [0]. Quitter                                           
+""")
 
 def home()->None:
      print("""
@@ -75,3 +74,10 @@ def titre(txte:str)->None:
     print(txte.center(60))
     print("="*60)
     print("\n")
+
+def sous_menu()->None:
+    print("""
+  ========================================================== 
+[1]. Sauvegarder                                    [3]. Infos
+[2]. Historique                                     [0]. Quitter""")
+
