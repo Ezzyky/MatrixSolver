@@ -1,6 +1,8 @@
 from matrice_io import *
 import sys
 import os
+import time
+time=time.strftime("%d-%m-%Y", time.localtime())
 
 def clear_avec_msg(msg: str="Appuyez sur n'importe quel bouton pour sortir...")->None:
     print(msg)
@@ -27,7 +29,7 @@ def options(historique_list:list[str])->None:
             clear_avec_msg("Option invalide.")
             return
         os.system("cls")
-        if sous_option==1:
+        if sous_option==1:          
             pass
         elif sous_option==2:
             titre("Historique")
