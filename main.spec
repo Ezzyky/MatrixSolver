@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['main.py'],
+    ['MatrixSolver.py'],
     pathex=[],
     binaries=[],
     datas=[],
