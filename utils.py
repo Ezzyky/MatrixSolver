@@ -1,8 +1,8 @@
 from matrice_io import *
 import sys
+import os
 
 def clear_avec_msg(msg: str="Appuyez sur n'importe quel bouton pour sortir...")->None:
-    import os
     print(msg)
     input()
     os.system("cls" if os.name == "nt" else "clear")
@@ -19,7 +19,12 @@ def Quitter()->None:
                     À bientôt !  Au revoir !""")
     sys.exit()
 
-def options(sous_option:int,historique_list:list[str])->None:
+def options(historique_list:list[str])->None:
+        try:
+            sous_option = int(input("Choisissez une option : "))
+        except ValueError:
+            clear_avec_msg("Option invalide.")
+        os.system("cls")
         if sous_option==1:
             pass
         elif sous_option==2:

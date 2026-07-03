@@ -5,8 +5,6 @@ from operations import *
 from utils import *
 from analyse import *
 import os
-import sys
-
 
 #la premire page 
 home()
@@ -64,13 +62,7 @@ while True:
             if all(all(x==0 for x in lignes)for lignes in adition_matrice ):
                 print("-----> La matrice est une matrice nulle!")
             sous_menu()
-            try:
-                sous_option = int(input("Choisissez une option : "))
-            except ValueError:
-                clear_avec_msg("Option invalide.")
-                continue
-            os.system("cls")
-            options(sous_option,historique_list)
+            options(historique_list)
 
         #option 2 = Soustraction
         elif option==2:
@@ -111,13 +103,7 @@ while True:
                 print("-----> La matrice est une matrice nulle!")
 
             sous_menu()
-            try:
-                sous_option = int(input("Choisissez une option : "))
-            except ValueError:
-                clear_avec_msg("Option invalide.")
-                continue
-            os.system("cls")
-            options(sous_option,historique_list)
+            options(historique_list)
             
             
         #option 3 = Multiplication 
@@ -158,13 +144,7 @@ while True:
             if all(all(x==0 for x in lignes)for lignes in matrice_multiple_par_Matrice ):
                 print("-----> La matrice est une matrice nulle!")
             sous_menu()
-            try:
-                sous_option = int(input("Choisissez une option : "))
-            except ValueError:
-                clear_avec_msg("Option invalide.")
-                continue
-            os.system("cls")
-            options(sous_option,historique_list)
+            options(historique_list)
 
         #option 4 = Multiplication par scalaire
         elif option==4:
@@ -189,13 +169,7 @@ while True:
             print()
             affichage(matrice_multipli_scalaire)
             sous_menu()
-            try:
-                sous_option = int(input("Choisissez une option : "))
-            except ValueError:
-                clear_avec_msg("Option invalide.")
-                continue
-            os.system("cls")
-            options(sous_option,historique_list)
+            options(historique_list)
         
         #option 5 = Transposée    
         elif option==5:
@@ -212,13 +186,7 @@ while True:
             affichage(matrice_Transpose)
             print()
             sous_menu()
-            try:
-                sous_option = int(input("Choisissez une option : "))
-            except ValueError:
-                clear_avec_msg("Option invalide.")
-                continue
-            os.system("cls")
-            options(sous_option,historique_list)
+            options(historique_list)
             
 
         #option 6 = reduction de gauss
@@ -259,13 +227,7 @@ while True:
             affichage(matrice)
             print()
             sous_menu()
-            try:
-                sous_option = int(input("Choisissez une option : "))
-            except ValueError:
-                clear_avec_msg("Option invalide.")
-                continue
-            os.system("cls")
-            options(sous_option,historique_list)
+            options(historique_list)
         
         #option 12 : trace
         elif option==12:
@@ -286,13 +248,7 @@ while True:
             print("--> Résultat de la trace :")
             print("Tr(A)=",trace(matrice))
             sous_menu()
-            try:
-                sous_option = int(input("Choisissez une option : "))
-            except ValueError:
-                clear_avec_msg("Option invalide.")
-                continue
-            os.system("cls")
-            options(sous_option,historique_list)
+            options(historique_list)
         
         #option 25 : historique
         elif option == 22:
