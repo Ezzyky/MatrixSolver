@@ -1,7 +1,7 @@
 <div align="center">
   <img src="matrix.ico" alt="Matrice icon" width="160" height="160" />
 
-  # Matrice
+  # MatrixSolver
 
   A Python command-line application for linear algebra — perform matrix operations, Gaussian elimination, and more through an interactive menu.
 
