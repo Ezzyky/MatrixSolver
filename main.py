@@ -15,22 +15,21 @@ historique_list=[]
 while True:
     
         #affichage de menu et input d option et clear
-        os.system("cls")
+        os.system("cls" if os.name == "nt" else "clear")
         menu()
         try:
             option = int(input("Choisissez une option : "))
         except ValueError:
             clear_avec_msg("Option invalide.")
             continue
-        os.system("cls") 
+        os.system("cls" if os.name == "nt" else "clear") 
 
         #option 1 = Addition 
         if option==1:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")         
-            historique_list.append("Addition")
             matrice_pour_add=demander_matrice("B")
-            os.system("cls")
+            os.system("cls" if os.name == "nt" else "clear")
             lignes_B=len(matrice_pour_add)
             colonnes_B=len(matrice_pour_add[0])
             if len(matrice)!=lignes_B or len(matrice[0])!=colonnes_B:
@@ -51,6 +50,7 @@ while True:
             print()
             print("-->Résultat de l'addition :")
             print()
+            historique_list.append("Addition")
             affichage(adition_matrice)
             if all(all(x==0 for x in lignes)for lignes in adition_matrice ):
                 print("-----> La matrice est une matrice nulle!")
@@ -61,10 +61,9 @@ while True:
         elif option==2:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
-            historique_list.append("Soustraction")
             matrice_pour_sost=demander_matrice(nom="B")
 
-            os.system("cls")
+            os.system("cls" if os.name == "nt" else "clear")
             lignes_B=len(matrice_pour_sost)
             colonnes_B=len(matrice_pour_sost[0])
             if len(matrice)!=lignes_B or len(matrice[0])!=colonnes_B:
@@ -84,6 +83,7 @@ while True:
             print()
             print("--> Résultat de la soustraction :")
             print()
+            historique_list.append("Soustraction")
             affichage(soustraction_matrice)
             if all(all(x==0 for x in lignes)for lignes in soustraction_matrice ):
                 print("-----> La matrice est une matrice nulle!")
@@ -96,10 +96,10 @@ while True:
         elif option==3:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
-            historique_list.append("Multiplication")
             matrice_pour_m=demander_matrice("B")
-            os.system("cls") 
+            os.system("cls" if os.name == "nt" else "clear") 
             titre("Multiplication")
+
             print("--> Matrice initiale A :")
             print()
             affichage(matrice)
@@ -117,6 +117,8 @@ while True:
                  print()
                  clear_avec_msg()
                  continue
+            historique_list.append("Multiplication")
+
             print("--> Résultat de la multiplication")
             print()
             affichage(matrice_multiple_par_Matrice)
@@ -131,7 +133,6 @@ while True:
         elif option==4:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
-            historique_list.append("Multiplication par scalaire")
             titre("Multiplication par scalaire")
             try:
                 scalaire=float(input("Veuillez entrer le scalaire à multiplier par la matrice: "))
@@ -140,6 +141,7 @@ while True:
                     print()
                     clear_avec_msg()
                     continue
+            historique_list.append("Multiplication par scalaire")
             print("Matrice initiale :")
             print()
             affichage(matrice)
@@ -156,35 +158,36 @@ while True:
         elif option==5:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
-            historique_list.append("Transposée")
             titre("Transposée")
             print("Matrice initiale :")
             print()
             affichage(matrice)
             matrice_Transpose=Transpose(matrice)
+            historique_list.append("Transposée")
             print("Résultat de la transposition :")
             print()
             affichage(matrice_Transpose)
             print()
             sous_menu()
             options(historique_list)
-            
 
         #option 6 = reduction de gauss
         elif option==6:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
-            historique_list.append("reduction de gauss")
             lignes=len(matrice)
             colonnes=len(matrice[0])
             titre("Réduction de Gauss")
+            if all(all(x==0 for x in lignes)for lignes in matrice ):
+                    print("-----> La matrice est une matrice nulle!") 
+                    clear_avec_msg()
+                    continue
             print("Matrice initiale :")
             print()
             affichage(matrice)
             # Permutation des lignes L1 et la première ligne dont le premier élément est non nul
             index=0
-            if lignes>=2:
-                    
+            if lignes>=2:   
                 for pivot in range(min(lignes, colonnes)):
                     if matrice[pivot][pivot] == 0:
                         for i in range(pivot + 1, lignes):
@@ -203,6 +206,7 @@ while True:
                 clear_avec_msg()
                 continue
             #affichge de resulta fianle
+            historique_list.append("reduction de gauss")
             print("--> Resulta finale:")
             print()
             affichage(matrice)

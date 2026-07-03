@@ -24,6 +24,7 @@ def options(historique_list:list[str])->None:
             sous_option = int(input("Choisissez une option : "))
         except ValueError:
             clear_avec_msg("Option invalide.")
+            return
         os.system("cls")
         if sous_option==1:
             pass

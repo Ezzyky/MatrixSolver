@@ -35,11 +35,7 @@ def demander_matrice(nom: str="A")->None:
             print()
             print(e)
             clear_avec_msg()
-        except TypeError:
-            print()
-            print("----> Veuillez entrer un nombre valide (un entier).")
-            clear_avec_msg()
-
+        
 def affichage(matrice:list[int])->None:
     lignes =len(matrice)
     for i in range(lignes):
