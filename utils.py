@@ -21,6 +21,7 @@ def Quitter()->None:
     titre("""          Merci d'avoir utilisé notre application !
                     À bientôt !  Au revoir !""")
     sys.exit()
+    clear_avec_msg()
 
 def ecrire_dans_fichier(titre_operation:str, *elements)->None:
     with open(f"{time}.txt", "a+", encoding="utf-8") as f:
