@@ -29,15 +29,7 @@ while True:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")         
             historique_list.append("Addition")
-            titre("Addition de matrices.")
-            try:
-                matrice_pour_add=prenant_matrice("B")
-            except ValueError:
-                    print("Veuillez entrer un nombre valide !(un nombre entier).")
-                    print()
-                    clear_avec_msg()
-                    continue
-            
+            matrice_pour_add=demander_matrice("B")
             os.system("cls")
             lignes_B=len(matrice_pour_add)
             colonnes_B=len(matrice_pour_add[0])
@@ -45,18 +37,19 @@ while True:
                 print("Addition impossible : dimensions incompatibles.")
                 clear_avec_msg()
                 continue
-            print("Matrice initiale A:")
+            titre("Addition de matrices.")
+            print("--> Matrice initiale A:")
             print()
             affichage(matrice)
             print()
-            print("Matrice à ajouter B:")    
+            print("--> Matrice à ajouter B:")    
             print()
             affichage(matrice_pour_add)
             print()
-            print("Calcul de la addition par le matrice B :")
+            print("--> Calcul de la addition par le matrice B :")
             adition_matrice=addition(matrice,matrice_pour_add)
             print()
-            print("Résultat de l'addition :")
+            print("-->Résultat de l'addition :")
             print()
             affichage(adition_matrice)
             if all(all(x==0 for x in lignes)for lignes in adition_matrice ):
@@ -69,34 +62,27 @@ while True:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             historique_list.append("Soustraction")
-            titre("Soustraction de matrices")
-            try:
-                matrice_pour_sost=prenant_matrice(nom="B")
-            except ValueError:
-                    print("Veuillez entrer un nombre valide !(un nombre entier).")
-                    print()
-                    clear_avec_msg()
-                    continue
-            
+            matrice_pour_sost=demander_matrice(nom="B")
+
             os.system("cls")
             lignes_B=len(matrice_pour_sost)
             colonnes_B=len(matrice_pour_sost[0])
             if len(matrice)!=lignes_B or len(matrice[0])!=colonnes_B:
-                print("----->Soustraction impossible : dimensions incompatibles.")
+                print("-----> Soustraction impossible : dimensions incompatibles.")
                 clear_avec_msg()
                 continue
-            
-            print("Matrice initiale A :")
+            titre("Soustraction de matrices")
+            print("--> Matrice initiale A :")
             print()
             affichage(matrice)
             print()
-            print("Matrice à soustraire B :")
+            print("--> Matrice à soustraire B :")
             affichage(matrice_pour_sost)
             print()
-            print("Calcul de la soustraction par le matrice B :")
+            print("--> Calcul de la soustraction par le matrice B :")
             soustraction_matrice = souetraction(matrice, matrice_pour_sost)
             print()
-            print("Résultat de la soustraction :")
+            print("--> Résultat de la soustraction :")
             print()
             affichage(soustraction_matrice)
             if all(all(x==0 for x in lignes)for lignes in soustraction_matrice ):
@@ -111,15 +97,9 @@ while True:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             historique_list.append("Multiplication")
+            matrice_pour_m=demander_matrice("B")
+            os.system("cls") 
             titre("Multiplication")
-            try:
-                matrice_pour_m=prenant_matrice("B")
-            except ValueError:
-                    print("Veuillez entrer un nombre valide !(un nombre entier).")
-                    print()
-                    clear_avec_msg()
-                    continue
-            
             print("--> Matrice initiale A :")
             print()
             affichage(matrice)
@@ -133,16 +113,17 @@ while True:
             try:
                 matrice_multiple_par_Matrice=multiplication(matrice,matrice_pour_m)
             except ValueError:
-                 print("Multiplication impossible : le nombre de colonnes de la première matrice doit être égal au nombre de lignes de la deuxième.")
+                 print("----> Multiplication impossible : le nombre de colonnes de la première matrice doit être égal au nombre de lignes de la deuxième.")
                  print()
                  clear_avec_msg()
                  continue
-            print( "Résultat de la multiplication")
+            print("--> Résultat de la multiplication")
             print()
             affichage(matrice_multiple_par_Matrice)
             print()
             if all(all(x==0 for x in lignes)for lignes in matrice_multiple_par_Matrice ):
                 print("-----> La matrice est une matrice nulle!")
+            #pour le  sous menu
             sous_menu()
             options(historique_list)
 
@@ -218,7 +199,7 @@ while True:
                         print()
             else:
                 print()
-                print("--> La matrice contient une seule ligne. Aucune élimination n'est nécessaire.")
+                print("----> La matrice contient une seule ligne. Aucune élimination n'est nécessaire.")
                 clear_avec_msg()
                 continue
             #affichge de resulta fianle
@@ -236,7 +217,7 @@ while True:
             try:
                 trace(matrice)
             except ValueError:
-                print("--> La matrice doit être carrée.")
+                print("----> La matrice doit être carrée.")
                 clear_avec_msg()
                 continue
             titre("Trace")

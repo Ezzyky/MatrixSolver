@@ -13,7 +13,7 @@ def prenant_matrice(nom:str="A")->list[int]:
     colonnes=int(input("Nombre de colonnes : "))
 
     if lignes<=0 or colonnes<=0:
-       raise MatrixSizeError("Le nombre de lignes et de colonnes doit être strictement positif.")
+       raise MatrixSizeError("----> Le nombre de lignes et de colonnes doit être strictement positif.")
     Matrice=[[None for i in range(colonnes)]for i in range (lignes)]
     for i in range(lignes):
         for j in range (colonnes):
@@ -21,15 +21,15 @@ def prenant_matrice(nom:str="A")->list[int]:
     return Matrice
 
 #to exept the error out fo size tables
-def demander_matrice()->None:
+def demander_matrice(nom: str="A")->None:
     
     while True:
-        titre("Veuillez entrer la matrice initiale.")
+        titre(f"Veuillez entrer la matrice initiale {nom}.")
         try:
-             return prenant_matrice()
+             return prenant_matrice(nom)
         except ValueError:
             print()
-            print("Veuillez entrer un nombre valide (un entier).")
+            print("----> Veuillez entrer un nombre valide.")
             clear_avec_msg()
         except MatrixSizeError as e:
             print()
@@ -37,7 +37,7 @@ def demander_matrice()->None:
             clear_avec_msg()
         except TypeError:
             print()
-            print("Veuillez entrer un nombre valide (un entier).")
+            print("----> Veuillez entrer un nombre valide (un entier).")
             clear_avec_msg()
 
 def affichage(matrice:list[int])->None:
