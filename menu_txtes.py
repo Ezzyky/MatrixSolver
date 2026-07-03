@@ -1,4 +1,4 @@
-def menu():
+def menu()->None:
     print("""
                 =========================================================
                                APPLICATION D'ALGÈBRE LINÉAIRE
@@ -28,7 +28,7 @@ def menu():
    [25]. Historique 
           """)
 
-def home():
+def home()->None:
      print("""
             ==========================================================
                  BIENVENUE DANS LE PROGRAMME D'ALGÈBRE LINÉAIRE
@@ -41,7 +41,7 @@ def home():
             l'opération souhaitée dans le menu suivant.
 
     """)
-def infos():
+def infos()->None:
     print(f"""
         Nom            : Abdellah
         Nationalité    : Marocaine
@@ -61,8 +61,8 @@ def infos():
         Version        : 1.0
         Langage        : Python
 """)
-def titre(b):
+def titre(txte:str)->None:
     print("="*60)
-    print(b.center(60))
+    print(txte.center(60))
     print("="*60)
     print("\n")

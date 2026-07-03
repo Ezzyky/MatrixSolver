@@ -1,6 +1,6 @@
 from matrice_io import *
 
-def clear_avec_msg(msg="Appuyez sur n'importe quel bouton pour sortir..."):
+def clear_avec_msg(msg: str="Appuyez sur n'importe quel bouton pour sortir...")->None:
     import os
     print(msg)
     input()
