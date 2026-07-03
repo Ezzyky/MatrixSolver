@@ -1,7 +1,7 @@
 <div align="center">
   <img src="matrix.ico" alt="Matrice icon" width="160" height="160" />
 
-  # MatrixSolver
+  # Matrice
 
   A Python command-line application for linear algebra — perform matrix operations, Gaussian elimination, and more through an interactive menu.
 
@@ -21,9 +21,9 @@
 - [Requirements](#requirements)
 - [Installation & Usage](#installation--usage)
 - [Example](#example)
+- [Roadmap](#roadmap)
 - [Project structure](#project-structure)
 - [How it works](#how-it-works)
-- [Roadmap](#roadmap)
 - [Known limitations](#known-limitations)
 - [License](#license)
 
@@ -32,8 +32,6 @@
 **Matrice** is an interactive CLI application that lets you build a matrix and apply a range of linear algebra operations to it through a text menu — addition, subtraction, multiplication, Gaussian elimination, and more. Only integer-coefficient matrices are supported. It's available both as a Python script and as a standalone Windows executable (`MatrixSolver.exe`).
 
 ## Features
-
-### ✅ Implemented
 
 **Matrix operations**
 - Addition
@@ -51,20 +49,6 @@
 **Tools**
 - Operation history tracking (session-based)
 - App info / author details screen
-
-### 🚧 Planned (present in the menu, not yet implemented)
-
-- Gauss-Jordan method
-- Linear system solving
-- Rank
-- Determinant
-- Inverse
-- Invertibility / symmetry / diagonality checks
-- Eigenvalues & eigenvectors
-- Kernel (Ker) and Image (Im)
-- LU decomposition
-- SVD
-- Save/export results (submenu option is present but currently a no-op)
 
 ## Requirements
 
@@ -125,6 +109,22 @@ L3 ← 2L3 + 2L1
 ⎣ 0 0 10 ⎦
 ```
 
+## Roadmap
+
+These are listed in the app's menu but not implemented yet:
+
+- Gauss-Jordan method
+- Linear system solving
+- Rank
+- Determinant
+- Inverse
+- Invertibility / symmetry / diagonality checks
+- Eigenvalues & eigenvectors
+- Kernel (Ker) and Image (Im)
+- LU decomposition
+- SVD
+- Save/export results (submenu option exists but is currently a no-op)
+
 ## Project structure
 
 ```
@@ -159,6 +159,7 @@ matrice/
 - If a matrix column has no nonzero entry at or below the pivot (a singular/rank-deficient matrix), Gaussian elimination has no fallback and may leave that pivot as zero without a clear message.
 - The "Sauvegarder" (save) option in the sub-menu is present but currently does nothing (`pass`).
 - Operation history is kept only for the current session (not persisted to a file).
+
 
 
 ## License
