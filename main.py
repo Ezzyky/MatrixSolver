@@ -20,7 +20,7 @@ while True:
         try:
             option = int(input("Choisissez une option : "))
         except ValueError:
-            clear_avec_msg("Option invalide.")
+            clear_avec_msg("----> Option invalide.")
             continue
         os.system("cls" if os.name == "nt" else "clear") 
 
@@ -111,7 +111,7 @@ while True:
             print("--> Calcul de la Multiplication par le matrice B :")
             print()
             try:
-                matrice_multiple_par_Matrice=multiplication(matrice,matrice_pour_m)
+                matrice_multiple_par_Matrice=multiplication(matrice,matrice_pour_m,1)
             except ValueError:
                  print("----> Multiplication impossible : le nombre de colonnes de la première matrice doit être égal au nombre de lignes de la deuxième.")
                  print()
@@ -146,7 +146,6 @@ while True:
             print()
             affichage(matrice)
             print()
-            print("Calcul de la multiplication par le scalaire :")
             matrice_multipli_scalaire=multiplication_scalaire(matrice,scalaire)
             print("Matrice obtenue après multiplication par le scalaire :")
             print()
@@ -159,20 +158,53 @@ while True:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             titre("Transposée")
-            print("Matrice initiale :")
+            print("--> Matrice initiale :")
             print()
             affichage(matrice)
             matrice_Transpose=Transpose(matrice)
             historique_list.append("Transposée")
-            print("Résultat de la transposition :")
+            print("--> Résultat de la transposition :")
             print()
             affichage(matrice_Transpose)
             print()
             sous_menu()
             options(historique_list)
 
-        #option 6 = reduction de gauss
+        #option 6= la puissance d'une matrice
         elif option==6:
+            matrice=demander_matrice()
+            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
+            titre("la puissance d'une matrice")
+            try:
+                N_pour_la_puissance=int(input("Veuillez entrer le scalaire à multiplier par la matrice: "))
+            except ValueError:
+                    print("----> Veuillez entrer un nombre valide !")
+                    print()
+                    clear_avec_msg()
+                    continue
+            print("--> Matrice initiale :")
+            print()
+            affichage(matrice)
+            try:
+                matrice_avec_puissance=puissance_matrice(matrice,N_pour_la_puissance)
+            except ValueError as e:
+                 print(e)
+                 clear_avec_msg()
+                 continue
+            except ErrorNegative as i:
+                 print(i)
+                 clear_avec_msg()
+                 continue
+            print("--> Résultat de la puissance :")
+            print()
+            affichage(matrice_avec_puissance)
+            print()
+            historique_list.append("la puissance d'une matrice")
+            sous_menu()
+            options(historique_list)
+
+        #option 7 = reduction de gauss
+        elif option==7:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             lignes=len(matrice)
@@ -214,8 +246,8 @@ while True:
             sous_menu()
             options(historique_list)
         
-        #option 12 : trace
-        elif option==12:
+        #option 13 : trace
+        elif option==13:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             try:
@@ -235,14 +267,14 @@ while True:
             sous_menu()
             options(historique_list)
         
-        #option 25 : historique
-        elif option == 22:
+        #option 23 : historique
+        elif option == 23:
             titre("Historique")
             historique(historique_list)
             clear_avec_msg()
 
         #infos
-        elif option==23:
+        elif option==24:
              titre("INFOS")
              infos()
              clear_avec_msg()

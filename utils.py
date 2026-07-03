@@ -20,6 +20,7 @@ def Quitter()->None:
     sys.exit()
 
 def options(historique_list:list[str])->None:
+        
         try:
             sous_option = int(input("Choisissez une option : "))
         except ValueError:
@@ -29,9 +30,11 @@ def options(historique_list:list[str])->None:
         if sous_option==1:
             pass
         elif sous_option==2:
+            titre("Historique")
             historique(historique_list)
             clear_avec_msg()
         elif sous_option==3:
+            titre("INFOS")
             infos()
             clear_avec_msg()
         elif sous_option==0:

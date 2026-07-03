@@ -5,25 +5,27 @@ def menu()->None:
                 =========================================================
 
 [A] Opérations sur les matrices                   [B] Réduction et résolution
-    [1]. Addition                                     [6]. Réduction de Gauss
-    [2]. Soustraction                                 [7]. Méthode de Gauss-Jordan
-    [3]. Multiplication                               [8]. Résolution système linéaire
-    [4]. Multiplication par scalaire                  [9]. Rang
-    [5]. Transposée
+    [1]. Addition                                     [7]. Réduction de Gauss
+    [2]. Soustraction                                 [8]. Méthode de Gauss-Jordan
+    [3]. Multiplication                               [9]. Résolution système linéaire
+    [4]. Multiplication par scalaire                  [10]. Rang
+    [5]. Transposée AT
+    [6]. la puissance d'une matrice
+
 
 
 [C] Propriétés et analyse                         [D] Algèbre linéaire avancée
-   [10]. Déterminant                                    [16]. Valeurs propres
-   [11]. Inverse                                        [17]. Vecteurs propres
-   [12]. Trace                                          [18]. Noyau Ker(A)
-   [13]. Vérifier inversible                            [19]. Image Im(A)
-   [14]. Vérifier symétrique                            [20]. Décomposition LU
-   [15]. Vérifier diagonale                             [21]. SVD
+   [11]. Déterminant                                    [17]. Valeurs propres
+   [12]. Inverse                                        [18]. Vecteurs propres
+   [13]. Trace                                          [19]. Noyau Ker(A)
+   [14]. Vérifier inversible                            [20]. Image Im(A)
+   [15]. Vérifier symétrique                            [21]. Décomposition LU
+   [16]. Vérifier diagonale                             [22]. SVD
 
 
 [E] Outils
-   [22]. Historique                  
-   [23]. Infos                                   
+   [23]. Historique                  
+   [24]. Infos                                   
    [0]. Quitter                                           
 """)
 
