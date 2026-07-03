@@ -23,7 +23,7 @@ def Quitter()->None:
     sys.exit()
 
 def ecrire_dans_fichier(titre_operation:str, *elements)->None:
-    with open(f"{time}.txt", "w", encoding="utf-8") as f:
+    with open(f"{time}.txt", "a+", encoding="utf-8") as f:
         f.write("="*60 + "\n")
         f.write(f"{titre_operation.center(60)}\n")
         f.write("="*60 + "\n\n")
