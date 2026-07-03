@@ -118,15 +118,15 @@ while True:
                     clear_avec_msg()
                     continue
             
-            print("Matrice initiale A :")
+            print("--> Matrice initiale A :")
             print()
             affichage(matrice)
             print()
-            print("Matrice à multiplier B :")
+            print("--> Matrice à multiplier B :")
             print()
             affichage(matrice_pour_m)
             print()
-            print("Calcul de la Multiplication par le matrice B :")
+            print("--> Calcul de la Multiplication par le matrice B :")
             print()
             try:
                 matrice_multiple_par_Matrice=multiplication(matrice,matrice_pour_m)
@@ -150,9 +150,9 @@ while True:
             historique.append("Multiplication par scalaire")
             titre("Multiplication par scalaire")
             try:
-                scalaire=int(input("Veuillez entrer le scalaire à multiplier par la matrice: "))
+                scalaire=float(input("Veuillez entrer le scalaire à multiplier par la matrice: "))
             except ValueError:
-                    print("Veuillez entrer un nombre valide !(un nombre entier).")
+                    print("Veuillez entrer un nombre valide !")
                     print()
                     clear_avec_msg()
                     continue
@@ -213,11 +213,11 @@ while True:
                             print()
                 else:
                     print()
-                    print("La matrice contient une seule ligne. Aucune élimination n'est nécessaire.")
+                    print("--> La matrice contient une seule ligne. Aucune élimination n'est nécessaire.")
                     clear_avec_msg()
                     continue
                 #affichge de resulta fianle
-                print("resulta finale:")
+                print("--> Resulta finale:")
                 print()
                 affichage(matrice)
                 print()
@@ -230,17 +230,16 @@ while True:
             try:
                 trace(matrice)
             except ValueError:
-                print("La matrice doit être carrée.")
-                print()
+                print("--> La matrice doit être carrée.")
                 clear_avec_msg()
                 continue
             titre("Trace")
             historique.append("Trace")
-            print("Matrice initiale :")
+            print("--> Matrice initiale :")
             print()
             affichage(matrice)
             print()
-            print("Résultat de la trace :")
+            print("--> Résultat de la trace :")
             print("Tr(A)=",trace(matrice))
             clear_avec_msg()
         

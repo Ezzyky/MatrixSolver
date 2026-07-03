@@ -1,11 +1,12 @@
 from menu_txtes import *
 from utils import clear_avec_msg
 import sys
+
 #ajout un exception pour les errors
 class MatrixSizeError(Exception):
     pass
 
-def prenant_matrice(nom="A"):
+def prenant_matrice(nom:str="A")->list[int]:
     print(f"Saisissez la taille de la matrice {nom}:")
     
     lignes=int(input("Nombre de lignes : "))
@@ -18,21 +19,28 @@ def prenant_matrice(nom="A"):
         for j in range (colonnes):
             Matrice[i][j]=int(input(f"M[{i+1}][{j+1}] = "))
     return Matrice
+
 #to exept the error out fo size tables
-def demander_matrice():
+def demander_matrice()->None:
     
     while True:
         titre("Veuillez entrer la matrice initiale.")
         try:
              return prenant_matrice()
         except ValueError:
+            print()
             print("Veuillez entrer un nombre valide (un entier).")
             clear_avec_msg()
         except MatrixSizeError as e:
+            print()
             print(e)
             clear_avec_msg()
+        except TypeError:
+            print()
+            print("Veuillez entrer un nombre valide (un entier).")
+            clear_avec_msg()
 
-def affichage(matrice):
+def affichage(matrice:list[int])->None:
     lignes =len(matrice)
     for i in range(lignes):
         if i==0:
@@ -66,24 +74,10 @@ def swap(matrice):
         print(f"L1 ​↔ L​{index+1}")
     return matrice
 
-def trace(matrice):
+def trace(matrice:list[int])->int:
     if len(matrice)!=len(matrice[0]):
         raise ValueError
     t=0
     for i in range(len(matrice)):
         t+=matrice[i][i]
     return t
-def options():
-    try:
-            option = int(input("Choisissez une option : "))
-    except ValueError:
-        clear_avec_msg("Option invalide.")
-        
-    if option==0:
-         titre("""          Merci d'avoir utilisé notre application !
-                    À bientôt !  Au revoir !""")
-         sys.exit()
-    if option==1:
-        pass
-    if option==2:
-        pass

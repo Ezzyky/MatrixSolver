@@ -39,6 +39,15 @@ def home()->None:
 
             Veuillez d'abord saisir la matrice initiale, puis choisir
             l'opération souhaitée dans le menu suivant.
+           
+            ========================================================== 
+           
+            -->REMARQUE : 
+            Ce programme accepte uniquement des matrices à coefficients
+            entiers.
+            Les nombres réels (float) ne sont pas pris en charge.
+           
+            ==========================================================
 
     """)
 def infos()->None:

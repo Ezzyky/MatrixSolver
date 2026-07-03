@@ -1,33 +1,31 @@
-def multiplication_scalaire(matrice,scalaire):
+def multiplication_scalaire(matrice:list[int],scalaire:float)->float:
     matrice_m=[[None for i in range(len(matrice[0]))]for i in range(len(matrice))]
     for i in range(len(matrice)):
         for j in range(len(matrice[0])):
             matrice_m[i][j]=scalaire*matrice[i][j]
-            print(f"{matrice[i][j]} X {scalaire}  ",end="")
+            print(f"{matrice[i][j]} X {scalaire:.2f}  ",end="")
             print()
     return matrice_m
     
-def addition(matrice1,matrice2):
+def addition(matrice1:list[int],matrice2:list[int])->list[int]:
     matrice_add=[[None for i in range(len(matrice2[0]))]for i in range(len(matrice2))]
     for i in range(len(matrice1)):
         for j in range(len(matrice2[0])):
-
             matrice_add[i][j]=matrice1[i][j]+matrice2[i][j]
             print(f"{matrice1[i][j]} + {matrice2[i][j]}  ",end="")
             print()
     return matrice_add
 
-def souetraction(matrice1,matrice2):
-    matrice_add=[[None for i in range(len(matrice2[0]))]for i in range(len(matrice2))]
+def souetraction(matrice1:list[int],matrice2:list[int])->list[int]:
+    matrice_souetraction=[[None for i in range(len(matrice2[0]))]for i in range(len(matrice2))]
     for i in range(len(matrice1)):
         for j in range(len(matrice2[0])):
-
-            matrice_add[i][j]=matrice1[i][j]-matrice2[i][j]
+            matrice_souetraction[i][j]=matrice1[i][j]-matrice2[i][j]
             print(f"{matrice1[i][j]}-{matrice2[i][j]}  ",end="")
             print()
-    return matrice_add
+    return matrice_souetraction
 
-def multiplication(matrice1,matrice2):
+def multiplication(matrice1:list[int],matrice2:list[int])->list[int]:
             if len(matrice1[0]) != len(matrice2):
                 raise ValueError
 
@@ -40,7 +38,7 @@ def multiplication(matrice1,matrice2):
                     print()
             return matrice_multi
 
-def Transpose(matrice):
+def Transpose(matrice:list[int])->list[int]:
     lignes=len(matrice)
     colones=len(matrice[0])
     matrice_Transpose=[[None for i in range(lignes)]for i in range(colones)]
