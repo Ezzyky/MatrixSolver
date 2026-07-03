@@ -1,4 +1,5 @@
 from matrice_io import *
+from menu_txtes import *
 import sys
 import os
 import time
@@ -21,8 +22,22 @@ def Quitter()->None:
                     À bientôt !  Au revoir !""")
     sys.exit()
 
-def options(historique_list:list[str])->None:
-        
+def ecrire_dans_fichier(titre_operation:str, *elements)->None:
+    with open(f"{time}.txt", "w", encoding="utf-8") as f:
+        f.write("="*60 + "\n")
+        f.write(f"{titre_operation.center(60)}\n")
+        f.write("="*60 + "\n\n")
+        for nom, valeur in elements:
+            f.write(f"{nom} :\n")
+            if isinstance(valeur, list): 
+                for ligne in valeur:
+                    f.write(str(ligne) + "\n")
+            else: 
+                f.write(str(valeur) + "\n")
+            f.write("\n")
+        f.write("="*60 + "\n\n")
+
+def options(historique_list: list[str], titre_operation: str, *elements)->None:
         try:
             sous_option = int(input("Choisissez une option : "))
         except ValueError:
@@ -30,7 +45,9 @@ def options(historique_list:list[str])->None:
             return
         os.system("cls")
         if sous_option==1:          
-            pass
+            titre("Done")
+            ecrire_dans_fichier(titre_operation, *elements)
+            clear_avec_msg()
         elif sous_option==2:
             titre("Historique")
             historique(historique_list)

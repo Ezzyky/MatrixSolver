@@ -48,14 +48,14 @@ while True:
             print("--> Calcul de la addition par le matrice B :")
             adition_matrice=addition(matrice,matrice_pour_add)
             print()
-            print("-->Résultat de l'addition :")
+            print("--> Résultat de l'addition :")
             print()
             historique_list.append("Addition")
             affichage(adition_matrice)
             if all(all(x==0 for x in lignes)for lignes in adition_matrice ):
                 print("-----> La matrice est une matrice nulle!")
             sous_menu()
-            options(historique_list)
+            options(historique_list,"Addition",("Matrice initiale",matrice),("Matrice à ajouter B",matrice_pour_add),("Résultat de l'addition",adition_matrice))
 
         #option 2 = Soustraction
         elif option==2:
@@ -87,11 +87,9 @@ while True:
             affichage(soustraction_matrice)
             if all(all(x==0 for x in lignes)for lignes in soustraction_matrice ):
                 print("-----> La matrice est une matrice nulle!")
-
             sous_menu()
-            options(historique_list)
-            
-            
+            options(historique_list,"Soustraction de matrices",("Matrice initiale",matrice),("Matrice à soustraire B",matrice_pour_sost),("Résultat de la soustraction",soustraction_matrice))
+
         #option 3 = Multiplication 
         elif option==3:
             matrice=demander_matrice()
@@ -127,7 +125,7 @@ while True:
                 print("-----> La matrice est une matrice nulle!")
             #pour le  sous menu
             sous_menu()
-            options(historique_list)
+            options(historique_list,"Multiplication",("Matrice initiale",matrice),("Matrice à multiplier B",matrice_pour_m),("Résultat de la multiplication",matrice_multiple_par_Matrice))
 
         #option 4 = Multiplication par scalaire
         elif option==4:
@@ -151,7 +149,7 @@ while True:
             print()
             affichage(matrice_multipli_scalaire)
             sous_menu()
-            options(historique_list)
+            options(historique_list,"Multiplication par scalaire",("Matrice initiale :",matrice),("Multiplication par scalaire :",scalaire),("Matrice obtenue après multiplication par le scalaire :",matrice_multipli_scalaire))
         
         #option 5 = Transposée    
         elif option==5:
@@ -168,7 +166,7 @@ while True:
             affichage(matrice_Transpose)
             print()
             sous_menu()
-            options(historique_list)
+            options(historique_list,"Transposée",("Matrice initiale",matrice),("Résultat de la transposition",matrice_Transpose))
 
         #option 6= la puissance d'une matrice
         elif option==6:
@@ -176,7 +174,7 @@ while True:
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             titre("la puissance d'une matrice")
             try:
-                N_pour_la_puissance=int(input("Veuillez entrer le scalaire à multiplier par la matrice: "))
+                N_pour_la_puissance=int(input("Veuillez entrer l'exposant de la matrice :"))
             except ValueError:
                     print("----> Veuillez entrer un nombre valide !")
                     print()
@@ -201,11 +199,14 @@ while True:
             print()
             historique_list.append("la puissance d'une matrice")
             sous_menu()
-            options(historique_list)
+            options(historique_list,"la puissance d'une matrice",("Matrice initiale :",matrice),("Résultat de la puissance :",N_pour_la_puissance),("Résultat de l'addition",matrice_avec_puissance))
 
         #option 7 = reduction de gauss
         elif option==7:
+            import copy
+
             matrice=demander_matrice()
+            matrice_initiale=copy.deepcopy(matrice)
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             lignes=len(matrice)
             colonnes=len(matrice[0])
@@ -244,7 +245,7 @@ while True:
             affichage(matrice)
             print()
             sous_menu()
-            options(historique_list)
+            options(historique_list,"reduction de gauss",("Matrice initiale",matrice_initiale),("reduction de gauss resulta finale:",matrice))
         
         #option 13 : trace
         elif option==13:
@@ -265,7 +266,8 @@ while True:
             print("--> Résultat de la trace :")
             print("Tr(A)=",trace(matrice))
             sous_menu()
-            options(historique_list)
+            options(historique_list,"trace",("Matrice initiale",matrice),("Résultat de la trace :",trace(matrice)))
+
         
         #option 23 : historique
         elif option == 23:
