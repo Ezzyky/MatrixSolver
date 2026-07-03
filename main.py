@@ -149,7 +149,7 @@ while True:
             print()
             affichage(matrice_multipli_scalaire)
             sous_menu()
-            options(historique_list,"Multiplication par scalaire",("Matrice initiale :",matrice),("Multiplication par scalaire :",scalaire),("Matrice obtenue après multiplication par le scalaire :",matrice_multipli_scalaire))
+            options(historique_list,"Multiplication par scalaire",("Matrice initiale",matrice),("Multiplication par scalaire",scalaire),("Matrice obtenue après multiplication par le scalaire",matrice_multipli_scalaire))
         
         #option 5 = Transposée    
         elif option==5:
@@ -199,7 +199,7 @@ while True:
             print()
             historique_list.append("la puissance d'une matrice")
             sous_menu()
-            options(historique_list,"la puissance d'une matrice",("Matrice initiale :",matrice),("Résultat de la puissance :",N_pour_la_puissance),("Résultat de l'addition",matrice_avec_puissance))
+            options(historique_list,"la puissance d'une matrice",("Matrice initiale",matrice),("Résultat de la puissance",N_pour_la_puissance),("Résultat de l'addition",matrice_avec_puissance))
 
         #option 7 = reduction de gauss
         elif option==7:
@@ -245,7 +245,7 @@ while True:
             affichage(matrice)
             print()
             sous_menu()
-            options(historique_list,"reduction de gauss",("Matrice initiale",matrice_initiale),("reduction de gauss resulta finale:",matrice))
+            options(historique_list,"reduction de gauss",("Matrice initiale",matrice_initiale),("reduction de gauss resulta finale",matrice))
         
         #option 13 : trace
         elif option==13:
@@ -266,7 +266,7 @@ while True:
             print("--> Résultat de la trace :")
             print("Tr(A)=",trace(matrice))
             sous_menu()
-            options(historique_list,"trace",("Matrice initiale",matrice),("Résultat de la trace :",trace(matrice)))
+            options(historique_list,"trace",("Matrice initiale",matrice),("Résultat de la trace",trace(matrice)))
 
         
         #option 23 : historique
@@ -284,7 +284,6 @@ while True:
         #option 0 = Quitter
         elif option==0:
             Quitter()
-
         else:
              titre("pas de option!")
              clear_avec_msg()

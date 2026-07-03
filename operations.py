@@ -36,7 +36,7 @@ def multiplication(matrice1:list[int],matrice2:list[int],flag:int=0)->list[int]:
                     for k in range(len(matrice2)):
                         matrice_multi[i][j] += matrice1[i][k] * matrice2[k][j]
                         if flag==1:
-                            print(f"{matrice1[i][k]} X {matrice2[k][j]}  ",end="")
+                            print(f"{matrice1[i][k]} X {matrice2[k][j]}")
             return matrice_multi
 
 def Transpose(matrice:list[int])->list[int]:

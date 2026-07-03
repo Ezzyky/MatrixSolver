@@ -83,6 +83,6 @@ def titre(txte:str)->None:
 def sous_menu()->None:
     print("""
   ========================================================== 
-[1]. Sauvegarder                                    [3]. Infos
-[2]. Historique                                     [0]. Quitter""")
+[1]. Sauvegarder                                    [0]. Returne
+[2]. Historique                                     """)
 

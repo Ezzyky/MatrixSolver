@@ -52,9 +52,5 @@ def options(historique_list: list[str], titre_operation: str, *elements)->None:
             titre("Historique")
             historique(historique_list)
             clear_avec_msg()
-        elif sous_option==3:
-            titre("INFOS")
-            infos()
-            clear_avec_msg()
         elif sous_option==0:
-            Quitter()
+            os.system("cls" if os.name == "nt" else "clear")
