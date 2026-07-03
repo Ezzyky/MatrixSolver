@@ -31,9 +31,12 @@ def menu()->None:
 
 def home()->None:
      print("""
-            ==========================================================
-                 BIENVENUE DANS LE PROGRAMME D'ALGÈBRE LINÉAIRE
-            ==========================================================
+           
+            ___  ___     ___       _       ____        _                
+            |  \/  | __ _| |_ _ __(_)_  __/ ___|  ___ | |_   _____ _ __ 
+            | |\/| |/ _` | __| '__| \ \/ /\___ \ / _ \| \ \ / / _ \ '__|
+            | |  | | (_| | |_| |  | |>  <  ___) | (_) | |\ V /  __/ |   
+            |_|  |_|\__,_|\__|_|  |_/_/\_\|____/ \___/|_| \_/ \___|_|
 
             Ce programme permet d'effectuer plusieurs opérations sur
             les matrices et les systèmes linéaires.
@@ -43,7 +46,7 @@ def home()->None:
            
             ========================================================== 
            
-            -->REMARQUE : 
+                                  -> REMARQUE <-
             Ce programme accepte uniquement des matrices à coefficients
             entiers.
             Les nombres réels (float) ne sont pas pris en charge.
