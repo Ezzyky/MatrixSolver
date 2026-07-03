@@ -25,7 +25,6 @@
 - [How it works](#how-it-works)
 - [Roadmap](#roadmap)
 - [Known limitations](#known-limitations)
-- [Author](#author)
 - [License](#license)
 
 ## About
@@ -161,16 +160,6 @@ matrice/
 - The "Sauvegarder" (save) option in the sub-menu is present but currently does nothing (`pass`).
 - Operation history is kept only for the current session (not persisted to a file).
 
-## Author
-
-- **Name:** Abdellah Ezzyky
-- **Status:** Computer Science student
-- **Nationality:** Moroccan
-- **Email:** Abdellahezzyky@gmail.com
-- **GitHub:** [github.com/EZZYKY](https://github.com/EZZYKY)
-- **LinkedIn:** [linkedin.com/in/abdellah-ezzyky-92b09a326](https://www.linkedin.com/in/abdellah-ezzyky-92b09a326)
-- **Started:** June 24, 2026
-- **Version:** 1.0
 
 ## License
 
