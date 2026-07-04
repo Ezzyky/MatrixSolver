@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="matrix.ico" alt="Matrice icon" width="160" height="160" />
+  <img src="icon.ico" alt="Matrice icon" width="160" height="160" />
 
   # MatrixSolver
 
