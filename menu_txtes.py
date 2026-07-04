@@ -24,9 +24,8 @@ def menu()->None:
 
 
 [E] Outils
-   [23]. Historique                  
-   [24]. Infos                                   
-   [0]. Quitter                                           
+   [23]. Historique               [24]. Infos           [0]. Quitter
+                                                                                           
 """)
 
 def home()->None:

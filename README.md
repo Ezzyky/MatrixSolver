@@ -39,6 +39,7 @@
 - Multiplication
 - Scalar multiplication
 - Transpose
+- Matrix power (Aⁿ) — including A⁰ (returns the identity matrix) and rejection of negative exponents
 
 **Reduction**
 - Gaussian elimination (row-echelon form), with row-swap handling for zero pivots and a step-by-step printout of every row operation performed (e.g. `L2 ← 2L2 - 3L1`)
@@ -48,6 +49,7 @@
 
 **Tools**
 - Operation history tracking (session-based)
+- Export a completed operation to a dated `.txt` file (e.g. `04-07-2026.txt`), with the initial matrix/matrices and result written out
 - App info / author details screen
 
 ## Requirements
@@ -73,7 +75,7 @@ Once running:
 1. Enter the matrix you want to work with (dimensions, then each value)
 2. Choose an operation from the menu
 3. Provide any additional input the operation needs (e.g. a second matrix, a scalar)
-4. View the result, then choose to save, view history, see app info, or quit from the sub-menu
+4. View the result, then from the sub-menu choose to save the result to a `.txt` file, view history, see explanations for the operation, or return to the main menu
 
 ## Example
 
@@ -123,7 +125,6 @@ These are listed in the app's menu but not implemented yet:
 - Kernel (Ker) and Image (Im)
 - LU decomposition
 - SVD
-- Save/export results (submenu option exists but is currently a no-op)
 
 ## Project structure
 
@@ -143,22 +144,22 @@ matrice/
 
 ## How it works
 
-- **`matrice_io.py`** handles building a matrix from user input (`prenant_matrice`, wrapped by `demander_matrice` which retries on invalid input via a custom `MatrixSizeError`), and displaying it with bracket-style formatting (`affichage`).
-- **`operations.py`** implements the basic matrix arithmetic (`addition`, `souetraction`, `multiplication`, `multiplication_scalaire`, `Transpose`), each printing the term-by-term calculation as it goes.
+- **`matrice_io.py`** handles building a matrix from user input (`prenant_matrice`, wrapped by `demander_matrice` which retries on invalid input via a custom `MatrixSizeError`), and displaying it with bracket-style formatting (`affichage`). It also contains a `swap()` helper for zero-pivot row swaps, which is currently unused — the row-swap logic actually used by the Gaussian elimination flow is implemented inline in `main.py` instead.
+- **`operations.py`** implements the basic matrix arithmetic (`addition`, `souetraction`, `multiplication`, `multiplication_scalaire`, `Transpose`) and matrix exponentiation (`puissance_matrice`), each printing the term-by-term calculation as it goes.
 - **`gauss.py`** implements `elimination_gauss(matrice, pivot)`, which eliminates entries below a pivot using integer-only cross-multiplication (`row_j*pivot_value - row_pivot*factor`) instead of division, and prints each row operation in `L_j ← ...` notation.
 - **`analyse.py`** holds matrix property functions — currently just `trace`, with room to grow into determinant, rank, etc.
-- **`menu_txtes.py`** centralizes all the text screens (welcome screen, main menu, sub-menu, info screen, section titles).
-- **`utils.py`** provides shared helpers: clearing the screen cross-platform, printing the operation history, handling the sub-menu's routing (`options`), and exiting the app.
-- **`main.py`** ties everything together in a `while True` loop: it shows the menu, reads the chosen option, asks for the matrix (and any extra input the operation needs), runs the operation, displays the result, and then hands off to a sub-menu (save / history / info / quit) before looping back.
+- **`menu_txtes.py`** centralizes all the text screens (welcome screen, main menu, sub-menu, info screen, section titles, and an explanation screen for each implemented operation).
+- **`utils.py`** provides shared helpers: clearing the screen cross-platform, printing the operation history, writing a completed operation's data to a dated `.txt` file (`ecrire_dans_fichier`), handling the sub-menu's routing (`options`), and exiting the app.
+- **`main.py`** ties everything together in a `while True` loop: it shows the menu, reads the chosen option, asks for the matrix (and any extra input the operation needs), runs the operation, displays the result, and then hands off to a sub-menu (save / history / explanations / return) before looping back.
 
 ## Known limitations
 
 - Several menu items are listed but not yet functional (see [Roadmap](#roadmap)) — selecting them either does nothing meaningful or falls through to the "pas de option!" message.
-- The main loop uses `os.system("cls")` directly (Windows-only); only `clear_avec_msg` in `utils.py` checks the OS and supports `clear` on Linux/macOS.
+- The main loop uses `os.system("cls")` directly in most places (Windows-only); `clear_avec_msg` in `utils.py` checks the OS and supports `clear` on Linux/macOS, but the `os.system("cls")` call inside `options()` in `utils.py` does not, so it silently does nothing on non-Windows systems.
 - `multiplication_scalaire` accepts a `float` scalar even though the app is documented as integer-only, so results can contain decimals.
 - If a matrix column has no nonzero entry at or below the pivot (a singular/rank-deficient matrix), Gaussian elimination has no fallback and may leave that pivot as zero without a clear message.
-- The "Sauvegarder" (save) option in the sub-menu is present but currently does nothing (`pass`).
-- Operation history is kept only for the current session (not persisted to a file).
+- `swap()` in `matrice_io.py` is dead code — it's never called; the equivalent row-swap logic for Gaussian elimination is duplicated inline in `main.py`.
+- Operation history is kept only for the current session (not persisted to a file); the per-operation "Sauvegarder" export (`.txt` file) is separate and does persist to disk.
 
 
 
