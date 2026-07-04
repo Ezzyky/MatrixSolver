@@ -20,6 +20,7 @@ while True:
         try:
             option = int(input("Choisissez une option : "))
         except ValueError:
+            titre("Error!")
             clear_avec_msg("----> Option invalide.")
             continue
         os.system("cls" if os.name == "nt" else "clear") 
@@ -33,6 +34,7 @@ while True:
             lignes_B=len(matrice_pour_add)
             colonnes_B=len(matrice_pour_add[0])
             if len(matrice)!=lignes_B or len(matrice[0])!=colonnes_B:
+                titre("Error!")
                 print("Addition impossible : dimensions incompatibles.")
                 clear_avec_msg()
                 continue
@@ -53,9 +55,10 @@ while True:
             historique_list.append("Addition")
             affichage(adition_matrice)
             if all(all(x==0 for x in lignes)for lignes in adition_matrice ):
+                titre("NOTICE!")
                 print("-----> La matrice est une matrice nulle!")
             sous_menu()
-            options(historique_list,"Addition",("Matrice initiale",matrice),("Matrice à ajouter B",matrice_pour_add),("Résultat de l'addition",adition_matrice))
+            options(historique_list,Addition_info,"Addition",("Matrice initiale",matrice),("Matrice à ajouter B",matrice_pour_add),("Résultat de l'addition",adition_matrice))
 
         #option 2 = Soustraction
         elif option==2:
@@ -67,6 +70,7 @@ while True:
             lignes_B=len(matrice_pour_sost)
             colonnes_B=len(matrice_pour_sost[0])
             if len(matrice)!=lignes_B or len(matrice[0])!=colonnes_B:
+                titre("Error!")
                 print("-----> Soustraction impossible : dimensions incompatibles.")
                 clear_avec_msg()
                 continue
@@ -86,9 +90,10 @@ while True:
             historique_list.append("Soustraction")
             affichage(soustraction_matrice)
             if all(all(x==0 for x in lignes)for lignes in soustraction_matrice ):
+                titre("Note!")
                 print("-----> La matrice est une matrice nulle!")
             sous_menu()
-            options(historique_list,"Soustraction de matrices",("Matrice initiale",matrice),("Matrice à soustraire B",matrice_pour_sost),("Résultat de la soustraction",soustraction_matrice))
+            options(historique_list,Soustraction_info,"Soustraction de matrices",("Matrice initiale",matrice),("Matrice à soustraire B",matrice_pour_sost),("Résultat de la soustraction",soustraction_matrice))
 
         #option 3 = Multiplication 
         elif option==3:
@@ -111,6 +116,7 @@ while True:
             try:
                 matrice_multiple_par_Matrice=multiplication(matrice,matrice_pour_m,1)
             except ValueError:
+                 titre("Error!")
                  print("----> Multiplication impossible : le nombre de colonnes de la première matrice doit être égal au nombre de lignes de la deuxième.")
                  print()
                  clear_avec_msg()
@@ -122,10 +128,11 @@ while True:
             affichage(matrice_multiple_par_Matrice)
             print()
             if all(all(x==0 for x in lignes)for lignes in matrice_multiple_par_Matrice ):
+                titre("Note!")
                 print("-----> La matrice est une matrice nulle!")
             #pour le  sous menu
             sous_menu()
-            options(historique_list,"Multiplication",("Matrice initiale",matrice),("Matrice à multiplier B",matrice_pour_m),("Résultat de la multiplication",matrice_multiple_par_Matrice))
+            options(historique_list,Multiplication_info,"Multiplication",("Matrice initiale",matrice),("Matrice à multiplier B",matrice_pour_m),("Résultat de la multiplication",matrice_multiple_par_Matrice))
 
         #option 4 = Multiplication par scalaire
         elif option==4:
@@ -135,7 +142,8 @@ while True:
             try:
                 scalaire=float(input("Veuillez entrer le scalaire à multiplier par la matrice: "))
             except ValueError:
-                    print("Veuillez entrer un nombre valide !")
+                    titre("Error!")
+                    print("---> Veuillez entrer un nombre valide !")
                     print()
                     clear_avec_msg()
                     continue
@@ -149,7 +157,7 @@ while True:
             print()
             affichage(matrice_multipli_scalaire)
             sous_menu()
-            options(historique_list,"Multiplication par scalaire",("Matrice initiale",matrice),("Multiplication par scalaire",scalaire),("Matrice obtenue après multiplication par le scalaire",matrice_multipli_scalaire))
+            options(historique_list,Multiplication_par_scalaire_info,"Multiplication par scalaire",("Matrice initiale",matrice),("Multiplication par scalaire",scalaire),("Matrice obtenue après multiplication par le scalaire",matrice_multipli_scalaire))
         
         #option 5 = Transposée    
         elif option==5:
@@ -166,7 +174,7 @@ while True:
             affichage(matrice_Transpose)
             print()
             sous_menu()
-            options(historique_list,"Transposée",("Matrice initiale",matrice),("Résultat de la transposition",matrice_Transpose))
+            options(historique_list,Transpose_info,"Transposée",("Matrice initiale",matrice),("Résultat de la transposition",matrice_Transpose))
 
         #option 6= la puissance d'une matrice
         elif option==6:
@@ -176,6 +184,7 @@ while True:
             try:
                 N_pour_la_puissance=int(input("Veuillez entrer l'exposant de la matrice :"))
             except ValueError:
+                    titre("Error!")
                     print("----> Veuillez entrer un nombre valide !")
                     print()
                     clear_avec_msg()
@@ -186,10 +195,12 @@ while True:
             try:
                 matrice_avec_puissance=puissance_matrice(matrice,N_pour_la_puissance)
             except ValueError as e:
+                 titre("Error!")
                  print(e)
                  clear_avec_msg()
                  continue
             except ErrorNegative as i:
+                 titre("Error!")
                  print(i)
                  clear_avec_msg()
                  continue
@@ -199,7 +210,7 @@ while True:
             print()
             historique_list.append("la puissance d'une matrice")
             sous_menu()
-            options(historique_list,"la puissance d'une matrice",("Matrice initiale",matrice),("Résultat de la puissance",N_pour_la_puissance),("Résultat de l'addition",matrice_avec_puissance))
+            options(historique_list,puissance_info,"la puissance d'une matrice",("Matrice initiale",matrice),("Résultat de la puissance",N_pour_la_puissance),("Résultat de l'addition",matrice_avec_puissance))
 
         #option 7 = reduction de gauss
         elif option==7:
@@ -212,6 +223,7 @@ while True:
             colonnes=len(matrice[0])
             titre("Réduction de Gauss")
             if all(all(x==0 for x in lignes)for lignes in matrice ):
+                    titre("Note!")
                     print("-----> La matrice est une matrice nulle!") 
                     clear_avec_msg()
                     continue
@@ -235,6 +247,7 @@ while True:
                         print()
             else:
                 print()
+                titre("Note!")
                 print("----> La matrice contient une seule ligne. Aucune élimination n'est nécessaire.")
                 clear_avec_msg()
                 continue
@@ -245,7 +258,7 @@ while True:
             affichage(matrice)
             print()
             sous_menu()
-            options(historique_list,"reduction de gauss",("Matrice initiale",matrice_initiale),("reduction de gauss resulta finale",matrice))
+            options(historique_list,Reduction_Gauss_info,"reduction de gauss",("Matrice initiale",matrice_initiale),("reduction de gauss resulta finale",matrice))
         
         #option 13 : trace
         elif option==13:
@@ -254,6 +267,7 @@ while True:
             try:
                 trace(matrice)
             except ValueError:
+                titre("Error!")
                 print("----> La matrice doit être carrée.")
                 clear_avec_msg()
                 continue
@@ -266,7 +280,7 @@ while True:
             print("--> Résultat de la trace :")
             print("Tr(A)=",trace(matrice))
             sous_menu()
-            options(historique_list,"trace",("Matrice initiale",matrice),("Résultat de la trace",trace(matrice)))
+            options(historique_list,Trace_info,"trace",("Matrice initiale",matrice),("Résultat de la trace",trace(matrice)))
 
         
         #option 23 : historique

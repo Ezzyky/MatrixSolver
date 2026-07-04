@@ -29,10 +29,12 @@ def demander_matrice(nom: str="A")->None:
              return prenant_matrice(nom)
         except ValueError:
             print()
+            titre("Error!")
             print("----> Veuillez entrer un nombre valide.")
             clear_avec_msg()
         except MatrixSizeError as e:
             print()
+            titre("Error!")
             print(e)
             clear_avec_msg()
         

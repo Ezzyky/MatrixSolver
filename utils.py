@@ -38,7 +38,7 @@ def ecrire_dans_fichier(titre_operation:str, *elements)->None:
             f.write("\n")
         f.write("="*60 + "\n\n")
 
-def options(historique_list: list[str], titre_operation: str, *elements)->None:
+def options(historique_list: list[str],fun_de_infos, titre_operation: str, *elements)->None:
         try:
             sous_option = int(input("Choisissez une option : "))
         except ValueError:
@@ -52,6 +52,9 @@ def options(historique_list: list[str], titre_operation: str, *elements)->None:
         elif sous_option==2:
             titre("Historique")
             historique(historique_list)
+            clear_avec_msg()
+        elif sous_option==3:
+            fun_de_infos()
             clear_avec_msg()
         elif sous_option==0:
             os.system("cls" if os.name == "nt" else "clear")
