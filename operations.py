@@ -8,7 +8,7 @@ def multiplication_scalaire(matrice:list[int],scalaire:float)->float:
             print(f"{matrice[i][j]} X {scalaire:.1f}  ",end="")
             print()
     return matrice_m
-    
+
 def addition(matrice1:list[int],matrice2:list[int])->list[int]:
     matrice_add=[[None for i in range(len(matrice2[0]))]for i in range(len(matrice2))]
     for i in range(len(matrice1)):
@@ -28,8 +28,6 @@ def souetraction(matrice1:list[int],matrice2:list[int])->list[int]:
     return matrice_souetraction
 
 def multiplication(matrice1:list[int],matrice2:list[int],flag:int=0)->list[int]:
-            if len(matrice1[0]) != len(matrice2):
-                raise ValueError
             matrice_multi=[[0 for i in range(len(matrice2[0]))]for i in range(len(matrice1))]
             for i in range(len(matrice1)):
                 for j in range(len(matrice2[0])):
@@ -51,11 +49,10 @@ def Transpose(matrice:list[int])->list[int]:
 class ErrorNegative(Exception):
     pass
 
+
 def puissance_matrice(matrice:list[list[int]],N:int)->list[list[int]]:
     if N<0:
         raise ErrorNegative("----> La puissance doit être positive ou nulle.")
-    if len(matrice)!=len(matrice[0]):
-        raise ValueError("----> La matrice doit être carrée.")
     if N==0:
         taille = len(matrice)
         return [[1 if i == j else 0 for j in range(taille)] for i in range(taille)]

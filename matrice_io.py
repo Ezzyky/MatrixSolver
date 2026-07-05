@@ -1,17 +1,30 @@
 from menu_txtes import *
 from utils import clear_avec_msg
-import sys
+
 
 #ajout un exception pour les errors
 class MatrixSizeError(Exception):
     pass
-
-def prenant_matrice(nom:str="A")->list[int]:
+class dimensions(Exception):
+    pass
+class nombreLIGNESmemeDEcolonnes(Exception):
+    pass
+class carree(Exception):
+    pass
+def prenant_matrice(nom:str="A",flag:int=0,matrice2:list[list[int]]=None)->list[int]:
     print(f"Saisissez la taille de la matrice {nom}:")
     
     lignes=int(input("Nombre de lignes : "))
     colonnes=int(input("Nombre de colonnes : "))
-
+    if flag==1:
+        if len(matrice2)!=lignes or len(matrice2[0])!=colonnes:
+            raise dimensions("-----> Soustraction impossible : dimensions incompatibles.")
+    if flag==2:
+        if len(matrice2[0])!=lignes:
+            raise nombreLIGNESmemeDEcolonnes("----> Multiplication impossible : le nombre de colonnes de la première matrice doit être égal au nombre de lignes de la deuxième.")
+    if flag==3:
+        if lignes!=colonnes:
+            raise carree("----> La matrice doit être carrée.")
     if lignes<=0 or colonnes<=0:
        raise MatrixSizeError("----> Le nombre de lignes et de colonnes doit être strictement positif.")
     Matrice=[[None for i in range(colonnes)]for i in range (lignes)]
@@ -21,12 +34,12 @@ def prenant_matrice(nom:str="A")->list[int]:
     return Matrice
 
 #to exept the error out fo size tables
-def demander_matrice(nom: str="A")->None:
+def demander_matrice(nom: str="A",falg:int=0,matrice:list[list[int]]=None)->None:
     
     while True:
         titre(f"Veuillez entrer la matrice initiale {nom}.")
         try:
-             return prenant_matrice(nom)
+             return prenant_matrice(nom,falg,matrice)
         except ValueError:
             print()
             titre("Error!")
@@ -37,9 +50,25 @@ def demander_matrice(nom: str="A")->None:
             titre("Error!")
             print(e)
             clear_avec_msg()
+        except dimensions as i:
+            print()
+            titre("Error!")
+            print(i)
+            clear_avec_msg()
+        except nombreLIGNESmemeDEcolonnes as n:
+            print()
+            titre("Error!")
+            print(n)
+            clear_avec_msg()
+        except carree as e:
+            print()
+            titre("Error!")
+            print(e)
+            clear_avec_msg()
         
 def affichage(matrice:list[int])->None:
     lignes =len(matrice)
+    print("\n")
     for i in range(lignes):
         if i==0:
             debut,fin="⎡", "⎤"
@@ -51,6 +80,8 @@ def affichage(matrice:list[int])->None:
         for x in matrice[i]:
             print(x,end=" ")
         print(fin)
+    print()
+    
 
 
     

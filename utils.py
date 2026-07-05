@@ -1,9 +1,7 @@
-from matrice_io import *
 from menu_txtes import *
 import sys
 import os
 import time
-time=time.strftime("%d-%m-%Y", time.localtime())
 
 def clear_avec_msg(msg: str="Appuyez sur n'importe quel bouton pour sortir...")->None:
     print(msg)
@@ -23,6 +21,7 @@ def Quitter()->None:
     sys.exit()
     clear_avec_msg()
 
+time=time.strftime("%d-%m-%Y", time.localtime())
 def ecrire_dans_fichier(titre_operation:str, *elements)->None:
     with open(f"{time}.txt", "a+", encoding="utf-8") as f:
         f.write("="*60 + "\n")
