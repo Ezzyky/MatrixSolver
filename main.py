@@ -17,7 +17,7 @@ import os
 ###########################
 #la premire page 
 home()
-clear_avec_msg()
+clear_avec_msg("Appuyez sur \"Entre\" bouton pour contune...")
 
 #une liste pour l'option 25 
 historique_list=[]
