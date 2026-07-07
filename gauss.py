@@ -1,20 +1,33 @@
 
-def elimination_gauss(matrice:list[int], pivot:int)->None:
-    lignes = len(matrice)
-    colonnes = len(matrice[0])
-    print("_________Opérations effectuées sur les lignes :_________")
-    print()
-    for j in range(pivot + 1, lignes):
-        if matrice[j][pivot] != 0:
+from matrice_io import *
 
-            a = matrice[j][pivot]
-            p = matrice[pivot][pivot]
-            if a<0:
-                print(f"L{j+1} ← {p}L{j+1} + {a*(-1)}L{pivot+1}")
+class seule_ligne(Exception):
+    pass
+def Reduction_de_Gauss(matrice: list[int])->list[int]:
+    lignes=len(matrice)
+    colonnes=len(matrice[0])
+    if lignes>=2:
+        ligne_courante = 0
+        for colonne in range(colonnes):
+            if ligne_courante >= lignes:
+                break
+            if matrice[ligne_courante][colonne] == 0:
+                trouve = False
+                for i in range(ligne_courante + 1, lignes):
+                    if matrice[i][colonne] != 0:
+                        matrice[ligne_courante], matrice[i] = matrice[i], matrice[ligne_courante]
+                        print(f"\nL{ligne_courante+1} ↔ L{i+1}")
+                        affichage(matrice)
+                        trouve = True
+                        break
+                    if not trouve:
+                        continue
+            Operations_gauss_affichage(matrice, ligne_courante, colonne)
+            ligne_courante += 1
+            if ligne_courante < lignes and colonne < colonnes - 1:
+                affichage(matrice)
                 print()
-            else:
-                print(f"L{j+1} ← {p}L{j+1} - {a}L{pivot+1}")
-                print()
-            for i in range(pivot, colonnes):
-                matrice[j][i] = matrice[j][i] * p - matrice[pivot][i] * a
+    if lignes==1:
+        raise seule_ligne("----> La matrice contient une seule ligne. Aucune élimination n'est nécessaire.")
+    
 

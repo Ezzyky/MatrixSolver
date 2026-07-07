@@ -5,3 +5,4 @@ def trace(matrice:list[int])->int:
     for i in range(len(matrice)):
         t+=matrice[i][i]
     return t
+

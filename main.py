@@ -172,45 +172,33 @@ while True:
         #option 7 = reduction de gauss
         elif option==7:
             import copy
-
             matrice=demander_matrice()
             matrice_initiale=copy.deepcopy(matrice)
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             lignes=len(matrice)
             colonnes=len(matrice[0])
             titre("Réduction de Gauss")
-            if all(all(x==0 for x in lignes)for lignes in matrice ):
-                    titre("Note!")
-                    print("-----> La matrice est une matrice nulle!") 
-                    clear_avec_msg()
-                    continue
             print("Matrice initiale :")
-            print()
             affichage(matrice)
-            # Permutation des lignes L1 et la première ligne dont le premier élément est non nul
-            index=0
-            if lignes>=2:   
-                for pivot in range(min(lignes, colonnes)):
-                    if matrice[pivot][pivot] == 0:
-                        for i in range(pivot + 1, lignes):
-                            if matrice[i][pivot] != 0:
-                                matrice[pivot], matrice[i] = matrice[i], matrice[pivot]
-                                print(f"\nL{pivot+1} ↔ L{i+1}")
-                                affichage(matrice)
-                                break
-                    elimination_gauss(matrice, pivot)
-                    if pivot < min(lignes, colonnes) - 1:
-                        affichage(matrice)
-                        print()
-            else:
+            print()
+            if all(all(x==0 for x in lignes)for lignes in matrice ):
                 titre("Note!")
-                print("----> La matrice contient une seule ligne. Aucune élimination n'est nécessaire.")
+                print("-----> La matrice est une matrice nulle!") 
+                clear_avec_msg()
+                continue
+
+            try:
+                Reduction_de_Gauss(matrice)
+            except seule_ligne as e:
+                titre("Note!")
+                print(e)
                 clear_avec_msg()
                 continue
             #affichge de resulta fianle
             historique_list.append("reduction de gauss")
             print("--> Resulta finale:")
             affichage(matrice)
+            sous_menu()
             options(historique_list,Reduction_Gauss_info,"reduction de gauss",("Matrice initiale",matrice_initiale),("reduction de gauss resulta finale",matrice))
         
         #option 13 : trace
@@ -225,7 +213,9 @@ while True:
             print("Tr(A)=",trace(matrice))
             sous_menu()
             options(historique_list,Trace_info,"trace",("Matrice initiale",matrice),("Résultat de la trace",trace(matrice)))
-        
+        #option14: 
+        elif option==14:
+           pass
         #option 23 : historique
         elif option == 23:
             titre("Historique")

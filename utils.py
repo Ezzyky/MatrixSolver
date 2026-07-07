@@ -57,3 +57,5 @@ def options(historique_list: list[str],fun_de_infos, titre_operation: str, *elem
             clear_avec_msg()
         elif sous_option==0:
             os.system("cls" if os.name == "nt" else "clear")
+        else:
+            os.system("cls" if os.name == "nt" else "clear")

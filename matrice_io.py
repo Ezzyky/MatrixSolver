@@ -1,7 +1,6 @@
 from menu_txtes import *
 from utils import clear_avec_msg
 
-
 #ajout un exception pour les errors
 class MatrixSizeError(Exception):
     pass
@@ -11,6 +10,7 @@ class nombreLIGNESmemeDEcolonnes(Exception):
     pass
 class carree(Exception):
     pass
+
 def prenant_matrice(nom:str="A",flag:int=0,matrice2:list[list[int]]=None)->list[int]:
     print(f"Saisissez la taille de la matrice {nom}:")
     
@@ -83,8 +83,6 @@ def affichage(matrice:list[int])->None:
     print()
     
 
-
-    
 # i dont need it for now
 def swap(matrice):
     lignes=len(matrice)
@@ -103,4 +101,20 @@ def swap(matrice):
         print(f"L1 ​↔ L​{index+1}")
     return matrice
 
-
+def Operations_gauss_affichage(matrice:list[int],ligne_pivot:int,col_pivot:int)->None:
+    lignes = len(matrice)
+    colonnes = len(matrice[0])
+    print("_________Opérations effectuées sur les lignes :_________")
+    print()
+    for j in range(ligne_pivot + 1, lignes):
+        if matrice[j][col_pivot] != 0:
+            a = matrice[j][col_pivot]
+            p = matrice[ligne_pivot][col_pivot]
+            if a<0:
+                print(f"L{j+1} ← {p}L{j+1} + {a*(-1)}L{ligne_pivot+1}")
+                print()
+            else:
+                print(f"L{j+1} ← {p}L{j+1} - {a}L{ligne_pivot+1}")
+                print()
+            for i in range(col_pivot, colonnes):
+                matrice[j][i] = matrice[j][i] * p - matrice[ligne_pivot][i] * a
