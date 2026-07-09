@@ -5,8 +5,6 @@ from operations import *
 from utils import *
 from analyse import *
 import os
-from colorama import *
-init(autoreset=True)
 
 ##########################
 # hi there!
@@ -29,9 +27,9 @@ while True:
         os.system("cls" if os.name == "nt" else "clear")
         menu()
         try:
-            option = int(input(Fore.YELLOW+ "Choisissez une option : "))
+            option = int(input( "Choisissez une option : "))
         except ValueError:
-            titre(Fore.RED+"Error!")
+            titre("Error!")
             clear_avec_msg("----> Option invalide.")
             continue
         os.system("cls" if os.name == "nt" else "clear") 
@@ -115,7 +113,7 @@ while True:
             try:
                 scalaire=float(input("Veuillez entrer le scalaire à multiplier par la matrice: "))
             except ValueError:
-                    titre(Fore.RED+"Error!")
+                    titre("Error!")
                     print("---> Veuillez entrer un nombre valide !")
                     print()
                     clear_avec_msg()
@@ -151,7 +149,7 @@ while True:
             try:
                 N_pour_la_puissance=int(input("Veuillez entrer l'exposant de la matrice :"))
             except ValueError:
-                    titre(Fore.RED+"Error!")
+                    titre("Error!")
                     print("----> Veuillez entrer un nombre valide !")
                     print()
                     clear_avec_msg()
@@ -161,7 +159,7 @@ while True:
             try:
                 matrice_avec_puissance=puissance_matrice(matrice,N_pour_la_puissance)
             except ErrorNegative as i:
-                 titre(Fore.RED+"Error!")
+                 titre("Error!")
                  print(i)
                  clear_avec_msg()
                  continue
@@ -204,14 +202,13 @@ while True:
             options(historique_list,Reduction_Gauss_info,"reduction de gauss",("Matrice initiale",matrice_initiale),("reduction de gauss resulta finale",matrice))
         #option 11: déterminant 
         elif option==11:
-            from colorama import Fore
             matrice=demander_matrice("A",3)
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             titre("déterminant")
             print("--> Matrice initiale :")
             affichage(matrice)
             print("--> Résultat de la déterminant :")
-            print("det(A)=",Fore.GREEN+str(determinant(matrice)))
+            print("det(A)=",(determinant(matrice)))
             historique_list.append("déterminant")
             sous_menu()
             options(historique_list,determinant_info,"déterminant",("Matrice initiale",matrice),("Résultat de la déterminant",determinant(matrice)))
@@ -236,7 +233,7 @@ while True:
             try:
                  inverse_de_matrice=inverse(matrice)
             except matricePASinverse as e:
-                titre(f"{Fore.RED+"NOTE!"}{Style.RESET_ALL}")
+                titre("NOTE!")
                 print(e)
                 clear_avec_msg()
                 continue

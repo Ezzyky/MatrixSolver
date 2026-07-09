@@ -1,7 +1,6 @@
 from menu_txtes import *
 from utils import clear_avec_msg
-from colorama import *
-init(autoreset=True)
+
 #ajout un exception pour les errors
 class MatrixSizeError(Exception):
     pass
@@ -21,7 +20,7 @@ def prenant_matrice(nom:str="A",flag:int=0,matrice2:list[list[int]]=None,msg:str
        raise MatrixSizeError("----> Le nombre de lignes et de colonnes doit être strictement positif.")
     if flag==1:
         if len(matrice2)!=lignes or len(matrice2[0])!=colonnes:
-            raise dimensions(f"""-----> {msg} impossible — dimensions incompatibles ({Fore.RED+str(len(matrice2))}x{Fore.RED+str(len(matrice2[0]))} ≠ {Fore.RED+str(lignes)}x{Fore.RED+str(colonnes)}{Style.RESET_ALL})""")
+            raise dimensions(f"""-----> {msg} impossible — dimensions incompatibles ({(len(matrice2))}x{(len(matrice2[0]))} ≠ {(lignes)}x{(colonnes)})""")
     if flag==2:
         if len(matrice2[0])!=lignes:
             raise nombreLIGNESmemeDEcolonnes("----> Multiplication impossible : le nombre de colonnes de la première matrice doit être égal au nombre de lignes de la deuxième.")
@@ -29,7 +28,7 @@ def prenant_matrice(nom:str="A",flag:int=0,matrice2:list[list[int]]=None,msg:str
         if lignes!=colonnes:
             raise carree("----> La matrice doit être carrée.")
     Matrice=[[None for i in range(colonnes)]for i in range (lignes)]
-    print(f"\nSaisissez les éléments de la matrice ({Fore.GREEN+str(lignes)} × {Fore.GREEN+str(colonnes)}{Style.RESET_ALL}) :\n")
+    print(f"\nSaisissez les éléments de la matrice ({(lignes)} × {(colonnes)}) :\n")
     for i in range(lignes):
         for j in range(colonnes):
             Matrice[i][j] = int(input(f"Élément de la ligne {i+1}, colonne {j+1} : "))
@@ -44,27 +43,27 @@ def demander_matrice(nom: str="A",falg:int=0,matrice:list[list[int]]=None,msg:st
              return prenant_matrice(nom,falg,matrice,msg)
         except ValueError:
             print()
-            titre(Fore.RED+"Error!")
+            titre("Error!")
             print("----> Veuillez entrer un nombre valide.")
             clear_avec_msg()
         except MatrixSizeError as e:
             print()
-            titre(Fore.RED+"Error!")
+            titre("Error!")
             print(e)
             clear_avec_msg()
         except dimensions as i:
             print()
-            titre(Fore.RED+"Error!")
+            titre("Error!")
             print(i)
             clear_avec_msg()
         except nombreLIGNESmemeDEcolonnes as n:
             print()
-            titre(Fore.RED+"Error!")
+            titre("Error!")
             print(n)
             clear_avec_msg()
         except carree as e:
             print()
-            titre(Fore.RED+"Error!")
+            titre("Error!")
             print(e)
             clear_avec_msg()
         

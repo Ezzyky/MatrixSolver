@@ -1,6 +1,5 @@
 from time import strftime,localtime
-from colorama import *
-init(autoreset=True)
+
 time=strftime("%d-%m-%Y", localtime())
 def menu()->None:
     print(f"""
@@ -28,7 +27,7 @@ def menu()->None:
 
 
 [E] Outils
-    {Fore.BLUE+"[23]. historique "}              {Fore.GREEN+"[24]. Infos"}             {Fore.RED+"[0]. Quitter"}
+    [23]. historique            [24]. Infos"          [0]. Quitter
                                                                                            
 """)
 
@@ -93,7 +92,7 @@ def sous_menu()->None:
     print(f"""
   ========================================================== 
 [1]. Sauvegarder dans "{time}.txt"                                   
-[2]. Historique                                   {Fore.RED+"[0]. Retour "}{Style.RESET_ALL}
+[2]. Historique                                 [0]. Retour 
 [3]. Explications         """)
 
 def inversible_info()->None:
