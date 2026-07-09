@@ -35,27 +35,30 @@ def ecrire_dans_fichier(titre_operation:str, *elements)->None:
             else: 
                 f.write(str(valeur) + "\n")
             f.write("\n")
-        f.write("="*60 + "\n\n")
+        f.write("="*60 +"\n\n")
 
-def options(historique_list: list[str],fun_de_infos, titre_operation: str, *elements)->None:
+from typing import Callable
+def options(historique_list: list[str]=None,fun_de_infos:Callable=inversible_info, titre_operation: str=None, *elements)->None:
         try:
             sous_option = int(input("Choisissez une option : "))
         except ValueError:
             clear_avec_msg("Option invalide.")
             return
         os.system("cls")
+        
         if sous_option==1:          
-            titre("Done")
-            ecrire_dans_fichier(titre_operation, *elements)
-            clear_avec_msg()
+                titre("Done")
+                ecrire_dans_fichier(titre_operation, *elements)
+                clear_avec_msg()
         elif sous_option==2:
-            titre("Historique")
-            historique(historique_list)
-            clear_avec_msg()
+                titre("Historique")
+                historique(historique_list)
+                clear_avec_msg()
         elif sous_option==3:
-            fun_de_infos()
-            clear_avec_msg()
+                fun_de_infos()
+                clear_avec_msg()
         elif sous_option==0:
-            os.system("cls" if os.name == "nt" else "clear")
+                os.system("cls" if os.name == "nt" else "clear")
         else:
-            os.system("cls" if os.name == "nt" else "clear")
+                os.system("cls" if os.name == "nt" else "clear")
+            

@@ -1,7 +1,11 @@
+from time import strftime,localtime
+from colorama import *
+init(autoreset=True)
+time=strftime("%d-%m-%Y", localtime())
 def menu()->None:
-    print("""
+    print(f"""
                 =========================================================
-                               APPLICATION D'ALGÈBRE LINÉAIRE
+                              APPLICATION D'ALGÈBRE LINÉAIRE
                 =========================================================
 
 [A] Opérations sur les matrices                   [B] Réduction et résolution
@@ -15,41 +19,46 @@ def menu()->None:
 
 
 [C] Propriétés et analyse                         [D] Algèbre linéaire avancée
-   [11]. Déterminant                                    [17]. Valeurs propres
-   [12]. Inverse                                        [18]. Vecteurs propres
-   [13]. Trace                                          [19]. Noyau Ker(A)
-   [14]. Vérifier inversible                            [20]. Image Im(A)
-   [15]. Vérifier symétrique                            [21]. Décomposition LU
-   [16]. Vérifier diagonale                             [22]. SVD
+    [11]. Déterminant                                 [17]. Valeurs propres
+    [12]. Vérifier inversible                         [18]. Vecteurs propres
+    [13]. Vérifier symétrique Trace                   [19]. Noyau Ker(A)
+    [14]. Vérifier diagonaleInverse                   [20]. Image Im(A)
+    [15]. Trace                                       [21]. Décomposition LU
+    [16]. Inverse                                     [22]. SVD
 
 
 [E] Outils
-   [23]. Historique               [24]. Infos           [0]. Quitter
+    {Fore.BLUE+"[23]. historique "}              {Fore.GREEN+"[24]. Infos"}             {Fore.RED+"[0]. Quitter"}
                                                                                            
 """)
 
 def home()->None:
      print("""
            
-            ___  ___     ___       _       ____        _                
-            |  \/  | __ _| |_ _ __(_)_  __/ ___|  ___ | |_   _____ _ __ 
-            | |\/| |/ _` | __| '__| \ \/ /\___ \ / _ \| \ \ / / _ \ '__|
-            | |  | | (_| | |_| |  | |>  <  ___) | (_) | |\ V /  __/ |   
-            |_|  |_|\__,_|\__|_|  |_/_/\_\|____/ \___/|_| \_/ \___|_|
+                ███╗   ███╗ █████╗ ████████╗██████╗ ██╗██╗  ██╗
+                ████╗ ████║██╔══██╗╚══██╔══╝██╔══██╗██║╚██╗██╔╝
+                ██╔████╔██║███████║   ██║   ██████╔╝██║ ╚███╔╝
+                ██║╚██╔╝██║██╔══██║   ██║   ██╔══██╗██║ ██╔██╗
+                ██║ ╚═╝ ██║██║  ██║   ██║   ██║  ██║██║██╔╝ ██╗
+                ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝
+                ███████╗ ██████╗ ██╗    ██╗   ██╗███████╗██████╗
+                ██╔════╝██╔═══██╗██║    ██║   ██║██╔════╝██╔══██╗
+                ███████╗██║   ██║██║    ██║   ██║█████╗  ██████╔╝
+                ╚════██║██║   ██║██║    ╚██╗ ██╔╝██╔══╝  ██╔══██╗
+                ███████║╚██████╔╝███████╗╚████╔╝ ███████╗██║  ██║
+                ╚══════╝ ╚═════╝ ╚══════╝ ╚═══╝  ╚══════╝╚═╝  ╚═╝
 
-            Ce programme permet d'effectuer plusieurs opérations sur
-            les matrices et les systèmes linéaires.
+        Ce programme permet d'effectuer plusieurs opérations sur les matrices
+        et les systèmes linéaires.
 
-            Veuillez d'abord saisir la matrice initiale, puis choisir
-            l'opération souhaitée dans le menu suivant.
-           
+        Veuillez d'abord saisir la matrice initiale, puis choisir l'opération
+        souhaitée dans le menu suivant.
+    
             ========================================================== 
-           
                                   -> REMARQUE <-
-            Ce programme accepte uniquement des matrices à coefficients
-            entiers.
-            Les nombres réels (float) ne sont pas pris en charge.
            
+        Ce programme accepte uniquement des matrices à coefficients entiers.
+        Les nombres réels (float) ne sont pas pris en charge.
             ==========================================================
 
     """)
@@ -74,19 +83,63 @@ def infos()->None:
         Langage        : Python
 """)
 def titre(txte:str)->None:
+    print()
     print("="*60)
     print(txte.center(60))
     print("="*60)
     print("\n")
 
 def sous_menu()->None:
-    print("""
+    print(f"""
   ========================================================== 
-[1]. Sauvegarder                                    
-[2]. Historique                                     [0]. Returne
+[1]. Sauvegarder dans "{time}.txt"                                   
+[2]. Historique                                   {Fore.RED+"[0]. Retour "}{Style.RESET_ALL}
 [3]. Explications         """)
 
+def inversible_info()->None:
+    print("""
+==========================================================
+         VÉRIFIER SI UNE MATRICE EST INVERSIBLE
+==========================================================
 
+Une matrice est dite inversible si elle possède une matrice
+inverse.
+
+Conditions :
+• La matrice doit être carrée (même nombre de lignes et de
+  colonnes).
+• Son déterminant doit être différent de zéro.
+
+Critère :
+
+           det(A) ≠ 0  ⇒  A est inversible
+           det(A) = 0  ⇒  A n'est pas inversible
+
+Exemple 1 :
+
+      ⎡1  2⎤
+A =   ⎣3  4⎦
+
+det(A) = (1 × 4) − (2 × 3)
+        = 4 − 6
+        = −2
+
+Comme det(A) ≠ 0, la matrice est inversible.
+
+Exemple 2 :
+
+      ⎡1  2⎤
+A =   ⎣2  4⎦
+
+det(A) = (1 × 4) − (2 × 2)
+        = 4 − 4
+        = 0
+
+Comme det(A) = 0, la matrice n'est pas inversible.
+
+==========================================================
+
+""")
 def Addition_info()->None:
     print("""
 ==========================================================
@@ -202,6 +255,64 @@ Résultat :
 A × B = ⎡19  22⎤
         ⎣43  50⎦
 
+==========================================================
+""")
+    
+def formul_inverse()->None:
+    print("┌──────────────────────────────────────────────┐")
+    print("│      FORMULE DE L'INVERSE D'UNE MATRICE      │")
+    print("├──────────────────────────────────────────────┤")
+    print("│                                              │")
+    print("│        A⁻¹ = (1/det(A)) × com(A)ᵀ            │")
+    print("│                                              │")
+    print("│  • det(A) ≠ 0                                │")
+    print("│  • com(A) : matrice des cofacteurs           │")
+    print("│  • com(A)ᵀ : matrice adjointe                │")
+    print("│                                              │")
+    print("└──────────────────────────────────────────────┘")
+    print()
+def invers_info():
+    print("""
+==========================================================
+            L'INVERSE D'UNE MATRICE
+==========================================================
+
+Définition :
+
+L'inverse d'une matrice A est une matrice A⁻¹ telle que :
+
+        A × A⁻¹ = A⁻¹ × A = I
+
+où I est la matrice identité.
+
+Conditions d'existence :
+
+• La matrice doit être carrée.
+• Son déterminant doit être non nul :
+      det(A) ≠ 0
+
+Formule :
+
+        A⁻¹ = (1 / det(A)) × com(A)ᵀ
+
+où :
+
+• det(A)   : déterminant de la matrice A.
+• com(A)   : comatrice (matrice des cofacteurs).
+• com(A)ᵀ  : transposée de la comatrice (matrice adjointe).
+
+Étapes de calcul :
+
+1. Calculer le déterminant de A.
+2. Vérifier que det(A) ≠ 0.
+3. Calculer la comatrice.
+4. Transposer la comatrice.
+5. Multiplier chaque élément par 1 / det(A).
+
+Remarque :
+
+Si det(A) = 0, la matrice est dite singulière
+et elle n'admet pas d'inverse.
 ==========================================================
 """)
 def Multiplication_par_scalaire_info()->None:
@@ -433,6 +544,62 @@ Calcul :
 tr(A) = 1 + 5 + 9 = 15
 
 La trace est un nombre réel ou entier, et non une matrice.
+
+==========================================================
+""")
+def determinant_info():
+    print("""
+==========================================================
+          INFORMATIONS SUR LE DÉTERMINANT
+==========================================================
+
+Le déterminant est un nombre associé à une matrice carrée.
+Il permet notamment de savoir si une matrice est inversible
+et de résoudre certains systèmes linéaires.
+
+Condition :
+• La matrice doit être carrée (même nombre de lignes et de
+  colonnes).
+
+Formules :
+
+Pour une matrice 2 × 2 :
+
+      ⎡a  b⎤
+A =   ⎣c  d⎦
+
+det(A) = ad − bc
+
+Pour une matrice 3 × 3 :
+
+      ⎡a  b  c⎤
+A =   ⎢d  e  f⎥
+      ⎣g  h  i⎦
+
+det(A) = aei + bfg + cdh − ceg − bdi − afh
+
+Propriétés :
+
+• Si det(A) ≠ 0, la matrice est inversible.
+• Si det(A) = 0, la matrice est singulière
+  (non inversible).
+• Échanger deux lignes change le signe du déterminant.
+• Si une ligne est nulle, alors det(A) = 0.
+• det(Aᵀ) = det(A).
+
+Exemple :
+
+      ⎡1  2⎤
+A =   ⎣3  4⎦
+
+Calcul :
+
+det(A) = (1 × 4) − (2 × 3)
+        = 4 − 6
+        = −2
+
+Le déterminant est un nombre réel ou entier, et non une
+matrice.
 
 ==========================================================
 """)

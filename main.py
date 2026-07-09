@@ -5,6 +5,9 @@ from operations import *
 from utils import *
 from analyse import *
 import os
+from colorama import *
+init(autoreset=True)
+
 ##########################
 # hi there!
 # if you are looking at this msg
@@ -22,14 +25,13 @@ clear_avec_msg("Appuyez sur \"Entre\" bouton pour contune...")
 #une liste pour l'option 25 
 historique_list=[]
 while True:
-    
         #affichage de menu et input d option et clear
         os.system("cls" if os.name == "nt" else "clear")
         menu()
         try:
-            option = int(input("Choisissez une option : "))
+            option = int(input(Fore.YELLOW+ "Choisissez une option : "))
         except ValueError:
-            titre("Error!")
+            titre(Fore.RED+"Error!")
             clear_avec_msg("----> Option invalide.")
             continue
         os.system("cls" if os.name == "nt" else "clear") 
@@ -38,7 +40,7 @@ while True:
         if option==1:
             matrice=demander_matrice()
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")         
-            matrice_pour_add=demander_matrice("B",1,matrice)
+            matrice_pour_add=demander_matrice("B",1,matrice,"Addition")
             os.system("cls" if os.name == "nt" else "clear")
             lignes_B=len(matrice_pour_add)
             colonnes_B=len(matrice_pour_add[0])
@@ -113,7 +115,7 @@ while True:
             try:
                 scalaire=float(input("Veuillez entrer le scalaire à multiplier par la matrice: "))
             except ValueError:
-                    titre("Error!")
+                    titre(Fore.RED+"Error!")
                     print("---> Veuillez entrer un nombre valide !")
                     print()
                     clear_avec_msg()
@@ -137,10 +139,10 @@ while True:
             matrice_Transpose=Transpose(matrice)
             historique_list.append("Transposée")
             print("--> Résultat de la transposition :")
+            print("Aᵀ",end="")
             affichage(matrice_Transpose)
             sous_menu()
             options(historique_list,Transpose_info,"Transposée",("Matrice initiale",matrice),("Résultat de la transposition",matrice_Transpose))
-
         #option 6= la puissance d'une matrice
         elif option==6:
             matrice=demander_matrice("A",3)
@@ -149,7 +151,7 @@ while True:
             try:
                 N_pour_la_puissance=int(input("Veuillez entrer l'exposant de la matrice :"))
             except ValueError:
-                    titre("Error!")
+                    titre(Fore.RED+"Error!")
                     print("----> Veuillez entrer un nombre valide !")
                     print()
                     clear_avec_msg()
@@ -159,7 +161,7 @@ while True:
             try:
                 matrice_avec_puissance=puissance_matrice(matrice,N_pour_la_puissance)
             except ErrorNegative as i:
-                 titre("Error!")
+                 titre(Fore.RED+"Error!")
                  print(i)
                  clear_avec_msg()
                  continue
@@ -200,22 +202,53 @@ while True:
             affichage(matrice)
             sous_menu()
             options(historique_list,Reduction_Gauss_info,"reduction de gauss",("Matrice initiale",matrice_initiale),("reduction de gauss resulta finale",matrice))
-        
-        #option 13 : trace
-        elif option==13:
+        #option 11: déterminant 
+        elif option==11:
+            from colorama import Fore
+            matrice=demander_matrice("A",3)
+            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
+            titre("déterminant")
+            print("--> Matrice initiale :")
+            affichage(matrice)
+            print("--> Résultat de la déterminant :")
+            print("det(A)=",Fore.GREEN+str(determinant(matrice)))
+            historique_list.append("déterminant")
+            sous_menu()
+            options(historique_list,determinant_info,"déterminant",("Matrice initiale",matrice),("Résultat de la déterminant",determinant(matrice)))
+
+        #option 15 : trace
+        elif option==15:
             matrice=demander_matrice("A",3)
             clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
             titre("Trace")
-            historique_list.append("Trace")
             print("--> Matrice initiale :")
             affichage(matrice)
             print("--> Résultat de la trace :")
             print("Tr(A)=",trace(matrice))
+            historique_list.append("Trace")
             sous_menu()
             options(historique_list,Trace_info,"trace",("Matrice initiale",matrice),("Résultat de la trace",trace(matrice)))
-        #option14: 
-        elif option==14:
-           pass
+        #option 16 : Inverse
+        elif option==16:
+            matrice=demander_matrice("A",3)
+            clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
+            titre("Inverse")
+            try:
+                 inverse_de_matrice=inverse(matrice)
+            except matricePASinverse as e:
+                titre(f"{Fore.RED+"NOTE!"}{Style.RESET_ALL}")
+                print(e)
+                clear_avec_msg()
+                continue
+
+            print("--> Matrice initiale :")
+            affichage(matrice)
+            formul_inverse()
+            print("--> Résultat du calcul de l'inverse :")  
+            affichage(inverse_de_matrice)    
+            sous_menu()
+            options(historique_list,invers_info(),"Inverse",("Matrice initiale",matrice),("Résultat du calcul de l'inverse",inverse(matrice)))
+     
         #option 23 : historique
         elif option == 23:
             titre("Historique")

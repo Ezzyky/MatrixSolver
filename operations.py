@@ -1,12 +1,14 @@
-def multiplication_scalaire(matrice:list[int],scalaire:float)->float:
+def multiplication_scalaire(matrice:list[int],scalaire:float,flag:int=0)->float:
     matrice_m=[[None for i in range(len(matrice[0]))]for i in range(len(matrice))]
-    print("Calcul de la multiplication par le scalaire :")
-    print()
+    if flag==0:
+        print("Calcul de la multiplication par le scalaire :")
+        print()
     for i in range(len(matrice)):
         for j in range(len(matrice[0])):
             matrice_m[i][j]=scalaire*matrice[i][j]
-            print(f"{matrice[i][j]} X {scalaire:.1f}  ",end="")
-            print()
+            if flag==0:
+                print(f"{matrice[i][j]} X {scalaire:.1f}  ",end="")
+                print()
     return matrice_m
 
 def addition(matrice1:list[int],matrice2:list[int])->list[int]:
@@ -57,7 +59,7 @@ def puissance_matrice(matrice:list[list[int]],N:int)->list[list[int]]:
         taille = len(matrice)
         return [[1 if i == j else 0 for j in range(taille)] for i in range(taille)]
     if N==1:
-        print("")
+        print()
         return matrice
     resulta=matrice
     for _ in range(N-1):
