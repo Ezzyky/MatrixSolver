@@ -1,7 +1,6 @@
 # Fonctions de saisie, validation et affichage des matrices.
 from menu_txtes import *
-from utils import clear_avec_msg
-
+import os
 # Exceptions associées à la validation des dimensions des matrices.
 #ajout un exception pour les errors
 class MatrixSizeError(Exception):
@@ -45,7 +44,9 @@ def prenant_matrice(nom:str="A",flag:int=0,matrice2:list[list[float]]=None,msg:s
     for i in range(lignes):
         for j in range(colonnes):
             Matrice[i][j] = float(input(f"Élément de la ligne {i+1}, colonne {j+1} : "))
-    clear_avec_msg("Appuyez sur n'importe quel bouton pour contune...")
+    print("Appuyez sur n'importe quel bouton pour contune...",end="")
+    input()
+    os.system("cls" if os.name == "nt" else "clear")
     return Matrice
 
 # Gère les erreurs de saisie jusqu'à l'obtention d'une matrice valide.
@@ -60,32 +61,44 @@ def demander_matrice(nom: str="A",falg:int=0,matrice:list[list[float]]=None,msg:
             print()
             titre("Error!")
             print("----> Veuillez entrer un nombre valide.")
-            clear_avec_msg()
+            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            input()
+            os.system("cls" if os.name == "nt" else "clear")
         except MatrixSizeError as e:
             print()
             titre("Error!")
             print(e)
-            clear_avec_msg()
+            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            input()
+            os.system("cls" if os.name == "nt" else "clear")
         except dimensions as i:
             print()
             titre("Error!")
             print(i)
-            clear_avec_msg()
+            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            input()
+            os.system("cls" if os.name == "nt" else "clear")
         except nombreLIGNESmemeDEcolonnes as n:
             print()
             titre("Error!")
             print(n)
-            clear_avec_msg()
+            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            input()
+            os.system("cls" if os.name == "nt" else "clear")
         except carree as e:
             print()
             titre("Error!")
             print(e)
-            clear_avec_msg()
+            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            input()
+            os.system("cls" if os.name == "nt" else "clear")
         except carrees_ordre as e:
             print()
             titre("Error!")
             print(e)
-            clear_avec_msg()
+            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            input()
+            os.system("cls" if os.name == "nt" else "clear")
         
 # Affiche une matrice avec des bordures adaptées à ses lignes.
 def affichage(matrice:list[int])->None:
@@ -132,7 +145,7 @@ def Operations_gauss_affichage(matrice:list[int],ligne_pivot:int,col_pivot:int,f
     lignes = len(matrice)
     colonnes = len(matrice[0])
     if flag==0:
-        print("_________Opérations effectuées sur les lignes :_________")
+        print("--> Opérations effectuées sur les lignes :")
         print()
     for j in range(ligne_pivot + 1, lignes):
         if matrice[j][col_pivot] != 0:

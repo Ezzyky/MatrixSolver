@@ -33,7 +33,7 @@ def Reduction_de_Gauss(matrice: list[int],flag:int=0)->list[int]:
                     if not trouve:
                         continue
             # Annule les coefficients situés sous le pivot retenu.
-            Operations_gauss_affichage(matrice, ligne_courante, colonne,1)
+            Operations_gauss_affichage(matrice, ligne_courante, colonne,flag)
             ligne_courante += 1
             if flag==0:
                 if ligne_courante < lignes and colonne < colonnes - 1:

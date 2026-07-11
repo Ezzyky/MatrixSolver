@@ -4,9 +4,10 @@ from time import strftime,localtime
 # Date affichée dans le sous-menu de sauvegarde.
 time=strftime("%d-%m-%Y", localtime())
 # Affiche le menu principal des opérations disponibles.
+
 def menu()->None:
     # Présente les commandes, regroupées par domaine, dans une seule vue.
-    print(f"""
+    print("""
                 =========================================================
                               APPLICATION D'ALGÈBRE LINÉAIRE
                 =========================================================

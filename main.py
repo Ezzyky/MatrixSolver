@@ -192,7 +192,7 @@ while True:
                 continue
 
             try:
-                Reduction_de_Gauss(matrice)
+                Reduction_de_Gauss(matrice,0)
             except seule_ligne as e:
                 titre("Note!")
                 print(e)
@@ -423,4 +423,3 @@ while True:
         else:
             titre(f"L'option {option} n'existe pas.")
             clear_avec_msg()
-       
