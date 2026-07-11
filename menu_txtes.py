@@ -1,7 +1,11 @@
+# Fonctions d'affichage des menus, messages et aides de l'application.
 from time import strftime,localtime
 
+# Date affichée dans le sous-menu de sauvegarde.
 time=strftime("%d-%m-%Y", localtime())
+# Affiche le menu principal des opérations disponibles.
 def menu()->None:
+    # Présente les commandes, regroupées par domaine, dans une seule vue.
     print(f"""
                 =========================================================
                               APPLICATION D'ALGÈBRE LINÉAIRE
@@ -27,11 +31,15 @@ def menu()->None:
 
 
 [E] Outils
-    [23]. historique            [24]. Infos"          [0]. Quitter
+    [23]. historique             [24]. Infos           [25]. Home
+
+                                 [0]. Quitter
                                                                                            
 """)
 
+# Affiche la page d'accueil et la présentation de l'application.
 def home()->None:
+     # Affiche la bannière et les consignes avant l'accès aux fonctionnalités.
      print("""
            
                 ███╗   ███╗ █████╗ ████████╗██████╗ ██╗██╗  ██╗
@@ -50,29 +58,28 @@ def home()->None:
         Ce programme permet d'effectuer plusieurs opérations sur les matrices
         et les systèmes linéaires.
 
-        Veuillez d'abord saisir la matrice initiale, puis choisir l'opération
-        souhaitée dans le menu suivant.
+        Veuillez d'abord choisir l'opération souhaitée dans le menu suivant,
+        puis saisir la matrice correspondante.
     
             ========================================================== 
                                   -> REMARQUE <-
            
-        Ce programme accepte uniquement des matrices à coefficients entiers.
-        Les nombres réels (float) ne sont pas pris en charge.
+        Ce programme accepte les matrices à coefficients entiers ainsi qu'à
+        coefficients réels (float).
             ==========================================================
-
     """)
+# Affiche les informations générales sur le projet.
 def infos()->None:
     print(f"""
-        Nom            : Abdellah
-        Nationalité    : Marocaine
+        Nom            : EZZYKY
         Statut         : Étudiant en informatique
 
         Description :
         Ce programme a été développé en Python dans le cadre d'un
         projet d'algèbre linéaire. Il permet d'effectuer plusieurs
         opérations sur les matrices et les systèmes linéaires.
-        i start at     : Jun 24, 2026
-        i end at       : _
+        
+        --> Jun 24, 2026
 
         Contact :
         E-mail         : Abdellahezzyky@gmail.com
@@ -81,20 +88,76 @@ def infos()->None:
         Version        : 1.0
         Langage        : Python
 """)
+# Affiche un titre centré et encadré.
 def titre(txte:str)->None:
     print()
+    # Une largeur fixe maintient l'alignement des titres dans le terminal.
     print("="*60)
     print(txte.center(60))
     print("="*60)
     print("\n")
 
+# Affiche les actions disponibles après une opération.
 def sous_menu()->None:
+    # Insère la date du jour dans le nom de fichier proposé à l'utilisateur.
     print(f"""
-  ========================================================== 
-[1]. Sauvegarder dans "{time}.txt"                                   
-[2]. Historique                                 [0]. Retour 
-[3]. Explications         """)
+          
+========================================================== 
+    [1]. Sauvegarder dans "{time}.txt"   
+    [2]. Historique                           [0]. Retour 
+    [3]. Explications        
+==========================================================  """)
 
+# Affiche le sous-menu des propriétés du déterminant.
+def sous_detiminent()->None:
+    print("""
+==========================================================
+          CALCUL DES PROPRIÉTÉS DU DÉTERMINANT
+==========================================================
+          
+À partir de cette matrice, le programme appliquera
+la propriété choisie et affichera le déterminant obtenu.
+          
+
+ [1]. Calculer det(A)          [4]. Calculer det(kA)
+                                
+ [2]. Calculer det(Aᵀ)         [5]. Calculer det(A⁻¹)
+               
+ [3]. Calculer det(AB)         [5]. Calculer det(Iₙ)
+         
+                     [0]. Retour
+
+==========================================================
+""")
+# --- Aides pédagogiques sur les propriétés et opérations matricielles ---
+# Présente le critère permettant de vérifier l'inversibilité.
+def verifier_inversible_info()->None:
+    print("""
+==========================================================
+           VÉRIFICATION DE L'INVERSIBILITÉ
+==========================================================
+
+Une matrice est inversible si et seulement si son
+déterminant est différent de zéro.
+
+Conditions :
+• La matrice doit être carrée (même nombre de lignes
+  et de colonnes).
+• det(A) ≠ 0
+
+Formule :
+
+            det(A) ≠ 0
+
+Résultat :
+
+• Si det(A) ≠ 0 :
+  → La matrice est inversible.
+
+• Si det(A) = 0 :
+  → La matrice n'est pas inversible.
+""")
+# Explique la notion de matrice inversible.
 def inversible_info()->None:
     print("""
 ==========================================================
@@ -139,10 +202,42 @@ Comme det(A) = 0, la matrice n'est pas inversible.
 ==========================================================
 
 """)
+# Présente le critère de symétrie d'une matrice.
+def verifier_symetrique_info()->None:
+    print("""
+==========================================================
+           VÉRIFICATION D'UNE MATRICE SYMÉTRIQUE
+==========================================================
+
+Une matrice est dite symétrique si elle est égale à sa
+transposée.
+
+Condition :
+• La matrice doit être carrée (même nombre de lignes
+  et de colonnes).
+
+Formule :
+
+            A = Aᵀ
+
+ou encore :
+
+            aᵢⱼ = aⱼᵢ
+
+Résultat :
+
+• Si A = Aᵀ :
+  → La matrice est symétrique.
+
+• Si A ≠ Aᵀ :
+  → La matrice n'est pas symétrique.
+""")
+# Affiche l'aide relative à l'addition de matrices.
 def Addition_info()->None:
     print("""
 ==========================================================
-                 ADDITION DE DEUX MATRICES
+                   INFORMATIONS SUR
+              ADDITION DE DEUX MATRICES
 ==========================================================
 
 L'addition de deux matrices est une opération qui consiste
@@ -171,6 +266,7 @@ Chaque élément est calculé comme suit :
 4 + 8 = 12
 ==========================================================
 """)
+# Affiche l'aide relative à la soustraction de matrices.
 def Soustraction_info()->None:
     print("""
 ==========================================================
@@ -207,6 +303,7 @@ dimensions que les deux matrices d'origine.
 
 ==========================================================
 """)
+# Affiche l'aide relative au produit de matrices.
 def Multiplication_info()->None:
     print("""
 ==========================================================
@@ -256,24 +353,27 @@ A × B = ⎡19  22⎤
 
 ==========================================================
 """)
-    
+def detKA ()->None:
+    print("┌──────────────────────────────────────────────┐")
+    print("│             Opérations effectuées            │")
+    print("├──────────────────────────────────────────────┤")
+    print("│               det(kA) = kⁿ det(A)            │")
+    print("└──────────────────────────────────────────────┘")
+    print()
+# Affiche la formule utilisée pour calculer l'inverse d'une matrice.
 def formul_inverse()->None:
     print("┌──────────────────────────────────────────────┐")
     print("│      FORMULE DE L'INVERSE D'UNE MATRICE      │")
     print("├──────────────────────────────────────────────┤")
-    print("│                                              │")
     print("│        A⁻¹ = (1/det(A)) × com(A)ᵀ            │")
-    print("│                                              │")
-    print("│  • det(A) ≠ 0                                │")
-    print("│  • com(A) : matrice des cofacteurs           │")
-    print("│  • com(A)ᵀ : matrice adjointe                │")
-    print("│                                              │")
     print("└──────────────────────────────────────────────┘")
     print()
+# Affiche l'aide détaillée relative à l'inverse d'une matrice.
 def invers_info():
     print("""
 ==========================================================
-            L'INVERSE D'UNE MATRICE
+                    INFORMATIONS SUR
+                L'INVERSE D'UNE MATRICE
 ==========================================================
 
 Définition :
@@ -314,6 +414,81 @@ Si det(A) = 0, la matrice est dite singulière
 et elle n'admet pas d'inverse.
 ==========================================================
 """)
+def rang_info():
+    print("""
+==========================================================
+                INFORMATIONS SUR LE RANG
+==========================================================
+
+Le rang d'une matrice est le nombre maximal de lignes
+(ou de colonnes) linéairement indépendantes.
+
+En pratique, le rang est obtenu en réduisant la matrice
+par la méthode de Gauss, puis en comptant le nombre de
+lignes non nulles.
+
+Conditions :
+
+• La matrice doit être valide.
+• Le rang est défini pour toute matrice carrée ou
+  rectangulaire.
+• Aucune condition d'inversibilité n'est requise.
+
+Méthode de calcul :
+
+1. Réduire la matrice par la méthode de Gauss.
+2. Compter le nombre de lignes non nulles.
+3. Ce nombre est le rang de la matrice.
+
+Propriétés :
+
+• 0 ≤ rg(A) ≤ min(n, m)
+
+  où n est le nombre de lignes et m le nombre de
+  colonnes.
+
+• Si A est une matrice carrée d'ordre n :
+
+      det(A) ≠ 0  ⇒  rg(A) = n
+
+• Une matrice nulle possède un rang égal à 0.
+
+• rg(A) = rg(Aᵀ)
+
+• Le rang est égal au nombre de pivots de la matrice
+  réduite.
+
+Exemple 1 :
+
+      ⎡1  2⎤
+A =   ⎣2  4⎦
+
+Après réduction :
+
+      ⎡1  2⎤
+      ⎣0  0⎦
+
+Il reste une seule ligne non nulle.
+
+rg(A) = 1
+
+Exemple 2 :
+
+      ⎡1  2⎤
+A =   ⎣3  4⎦
+
+Après réduction :
+
+      ⎡1  2⎤
+      ⎣0 -2⎦
+
+Les deux lignes sont non nulles.
+
+rg(A) = 2
+
+==========================================================
+""")
+# Affiche l'aide relative à la multiplication par un scalaire.
 def Multiplication_par_scalaire_info()->None:
     print("""
 ==========================================================
@@ -366,6 +541,7 @@ matrice initiale.
 
 ==========================================================
 """)
+# Affiche l'aide relative à la transposition d'une matrice.
 def Transpose_info()->None:
     print("""
 ==========================================================
@@ -406,6 +582,7 @@ elle change uniquement leur position.
 
 ==========================================================
 """)
+# Affiche l'aide relative à la puissance d'une matrice.
 def puissance_info()->None:
     print("""
 ==========================================================
@@ -461,6 +638,7 @@ par elle-même.
 
 ==========================================================
 """)
+# Affiche l'aide relative à la réduction de Gauss.
 def Reduction_Gauss_info():
     print("""
 ==========================================================
@@ -508,6 +686,7 @@ d'analyser la matrice ou de résoudre le système associé.
 
 ==========================================================
 """)
+# Affiche l'aide relative à la trace d'une matrice.
 def Trace_info():
     print("""
 ==========================================================
@@ -546,6 +725,7 @@ La trace est un nombre réel ou entier, et non une matrice.
 
 ==========================================================
 """)
+# Affiche l'aide relative au calcul du déterminant.
 def determinant_info():
     print("""
 ==========================================================
@@ -553,52 +733,102 @@ def determinant_info():
 ==========================================================
 
 Le déterminant est un nombre associé à une matrice carrée.
-Il permet notamment de savoir si une matrice est inversible
-et de résoudre certains systèmes linéaires.
+Il permet notamment de savoir si une matrice est inversible,
+de résoudre certains systèmes linéaires et de simplifier
+plusieurs calculs grâce à ses propriétés.
 
 Condition :
 • La matrice doit être carrée (même nombre de lignes et de
   colonnes).
 
-Formules :
+----------------------------------------------------------
+1. Déterminant d'une matrice
+----------------------------------------------------------
 
-Pour une matrice 2 × 2 :
+Noté :
+
+        det(A)
+
+Exemple (2 × 2) :
 
       ⎡a  b⎤
 A =   ⎣c  d⎦
 
 det(A) = ad − bc
 
-Pour une matrice 3 × 3 :
+----------------------------------------------------------
+2. Déterminant de la transposée
+----------------------------------------------------------
 
-      ⎡a  b  c⎤
-A =   ⎢d  e  f⎥
-      ⎣g  h  i⎦
+        det(Aᵀ) = det(A)
 
-det(A) = aei + bfg + cdh − ceg − bdi − afh
+La transposition d'une matrice ne modifie pas son
+déterminant.
 
-Propriétés :
+----------------------------------------------------------
+3. Déterminant d'un produit
+----------------------------------------------------------
 
-• Si det(A) ≠ 0, la matrice est inversible.
-• Si det(A) = 0, la matrice est singulière
+        det(AB) = det(A) × det(B)
+
+Les deux matrices doivent être carrées et de même ordre.
+
+----------------------------------------------------------
+4. Déterminant d'une matrice multipliée
+   par un scalaire
+----------------------------------------------------------
+
+        det(kA) = kⁿ × det(A)
+
+où :
+• k est un scalaire.
+• n est l'ordre de la matrice.
+
+----------------------------------------------------------
+5. Déterminant de l'inverse
+----------------------------------------------------------
+
+        det(A⁻¹) = 1 / det(A)
+
+Condition :
+• A doit être inversible.
+• det(A) ≠ 0.
+
+----------------------------------------------------------
+6. Déterminant de la matrice identité
+----------------------------------------------------------
+
+        det(Iₙ) = 1
+
+où Iₙ désigne la matrice identité d'ordre n.
+
+----------------------------------------------------------
+Autres propriétés importantes
+----------------------------------------------------------
+
+• Si det(A) ≠ 0, alors A est inversible.
+• Si det(A) = 0, alors A est singulière
   (non inversible).
 • Échanger deux lignes change le signe du déterminant.
-• Si une ligne est nulle, alors det(A) = 0.
-• det(Aᵀ) = det(A).
+• Multiplier une ligne par k multiplie le déterminant
+  par k.
+• Si une ligne ou une colonne est nulle,
+  alors det(A) = 0.
+• Si deux lignes ou deux colonnes sont identiques,
+  alors det(A) = 0.
+• Le déterminant d'une matrice triangulaire est le
+  produit des éléments de sa diagonale principale.
 
-Exemple :
+----------------------------------------------------------
+Exemple
+----------------------------------------------------------
 
       ⎡1  2⎤
 A =   ⎣3  4⎦
 
-Calcul :
-
 det(A) = (1 × 4) − (2 × 3)
         = 4 − 6
         = −2
-
-Le déterminant est un nombre réel ou entier, et non une
-matrice.
 
 ==========================================================
 """)
