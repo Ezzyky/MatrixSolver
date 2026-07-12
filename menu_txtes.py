@@ -124,9 +124,8 @@ la propriété choisie et affichera le déterminant obtenu.
                                 
  [2]. Calculer det(Aᵀ)         [5]. Calculer det(A⁻¹)
                
- [3]. Calculer det(AB)         [5]. Calculer det(Iₙ)
+ [3]. Calculer det(AB)         [0]. Retour
          
-                     [0]. Retour
 
 ==========================================================
 """)
@@ -688,6 +687,45 @@ d'analyser la matrice ou de résoudre le système associé.
 ==========================================================
 """)
 # Affiche l'aide relative à la trace d'une matrice.
+def diagonale_info()-> None:
+    print("""
+==========================================================
+           INFORMATIONS SUR LA MATRICE DIAGONALE
+==========================================================
+
+Une matrice diagonale est une matrice carrée dont tous les
+éléments en dehors de la diagonale principale sont nuls.
+
+Condition :
+• La matrice doit être carrée.
+• Pour tout i ≠ j : aᵢⱼ = 0.
+
+Forme générale :
+
+        ⎡ d₁   0   0   ⋯   0 ⎤
+        ⎢  0  d₂   0   ⋯   0 ⎥
+    A = ⎢  0   0  d₃   ⋯   0 ⎥
+        ⎢  ⋮   ⋮   ⋮   ⋱   ⋮ ⎥
+        ⎣  0   0   0   ⋯  dₙ ⎦
+
+Exemple :
+
+        ⎡ 5   0   0 ⎤
+        ⎢ 0  -2   0 ⎥
+        ⎣ 0   0   7 ⎦
+
+Propriétés :
+• Une matrice diagonale est toujours symétrique.
+• Sa transposée est égale à elle-même.
+• Son déterminant est le produit des éléments de la
+  diagonale principale.
+• Elle est inversible si tous les éléments de la diagonale
+  sont non nuls.
+• Sa trace est la somme des éléments de la diagonale
+  principale.
+==========================================================
+
+""")
 def Trace_info():
     print("""
 ==========================================================

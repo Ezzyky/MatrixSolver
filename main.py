@@ -172,7 +172,7 @@ while True:
             affichage(matrice_avec_puissance)
             historique_list.append("la puissance d'une matrice")
             sous_menu()
-            options(historique_list,puissance_info,"la puissance d'une matrice",("Matrice initiale",matrice),("Résultat de la puissance",N_pour_la_puissance),("Résultat de l'addition",matrice_avec_puissance))
+            options(historique_list,puissance_info,"la puissance d'une matrice",("Matrice initiale",matrice),("Résultat de la puissance",N_pour_la_puissance))
 
         #option 7 = reduction de gauss
         elif option == 7:
@@ -226,7 +226,7 @@ while True:
             print(f"\nrg(A) ={rg}")
             historique_list.append("Rang")
             sous_menu()
-            options(historique_list,rang_info,rang,("Matrice initiale :",matrice_initiale),("Matrice reduite : :",matrice),("Résultat du calcul du rang\nrg(A) =",rang(matrice)))
+            options(historique_list,rang_info,rang,"Rang",("Matrice initiale :",matrice_initiale),("Matrice reduite : :",matrice),("Résultat du calcul du rang\nrg(A) =",rang(matrice)))
 
             #option 11: déterminant 
         elif option == 11:
@@ -239,39 +239,41 @@ while True:
                 continue
             os.system("cls")
             matrice=demander_matrice("A",3)
+            det_a=determinant(matrice)
             if sous_option==1:
                 titre("déterminant det(A)")
                 print("--> Matrice initiale :")
                 affichage(matrice)
                 print("--> Résultat de la déterminant de A :")
-                print("det(A) = ",(determinant(matrice)))
+                print("det(A) = ",(det_a))
                 historique_list.append("déterminant det(A)")
                 sous_menu()
-                options(historique_list,determinant_info,"déterminant",("Matrice initiale",matrice),("Résultat de la déterminant de A :\ndet(A)=",determinant(matrice)))
+                options(historique_list,determinant_info,"déterminant",("Matrice initiale",matrice),("Résultat de la déterminant de A :\ndet(A)=",det_a))
             elif sous_option==2:
                 titre("déterminant det(Aᵀ)")
                 print("--> Matrice initiale :")
                 affichage(matrice)
                 print("--> Résultat de la déterminant de Aᵀ:")
-                print("det(Aᵀ) = ",(determinant(matrice)))
+                print("det(Aᵀ) = ",(det_a))
                 historique_list.append("Calculer det(Aᵀ)")
                 sous_menu()
-                options(historique_list,determinant_info,"déterminant",("Matrice initiale",matrice),("Résultat de la déterminant de Aᵀ:\ndet(Aᵀ) = ",determinant(matrice)))
+                options(historique_list,determinant_info,"déterminant",("Matrice initiale",matrice),("Résultat de la déterminant de Aᵀ:\ndet(Aᵀ) = ",det_a))
             elif sous_option==3:
                 matrice_b=demander_matrice("A",4,matrice)
                 titre("déterminant det(AB)")
                 print("--> Les matrices initiale :")
                 affichage(matrice)
                 affichage(matrice_b)
-                print("det(A) = " ,(determinant(matrice)),end="")
+                print("det(A) = " ,(det_a),end="")
                 print(", det(B) = ",(determinant(matrice_b)))
                 print()
                 print("--> Resulta finale:")
                 # Utilise la propriété det(AB) = det(A) × det(B).
-                axb=determinant(matrice)*determinant(matrice_b)
+                axb=det_a*determinant(matrice_b)
                 print(f"det(AB)={axb}")
+                historique_list.append("Calculer det(AB)")
                 sous_menu()
-                options(historique_list,determinant_info,"déterminant",("Matrice initiale A",(matrice)),("Matrice initiale B",(matrice_b)),("det(A) = ",determinant(matrice)),("det(B) = ",determinant(matrice_b)),("det(AB) = ",axb))
+                options(historique_list,determinant_info,"déterminant",("Matrice initiale A",(matrice)),("Matrice initiale B",(matrice_b)),("det(A) = ",det_a),("det(B) = ",determinant(matrice_b)),("det(AB) = ",axb))
             elif sous_option==4:
                 titre("Calculer det(kA)")
                 try:
@@ -284,19 +286,28 @@ while True:
                         continue
                 print("La matrice initiale :")
                 affichage(matrice)
-                print(f"--> det(A) ={determinant(matrice):.1f}, n = {len(matrice)}, K ={scalaire:.1f}.")
+                print(f"--> det(A) ={det_a:.1f}, n = {len(matrice)}, K ={scalaire:.1f}.")
                 detKA()
                 print("--> Resulta finale:")
-                KA=(scalaire**len(matrice))*determinant(matrice)
-                print(f"det({scalaire:.0f}A = {KA}")
+                KA=(scalaire**len(matrice))*det_a
+                print(f"det({scalaire:.0f}A) = {KA}")
+                historique_list.append("Calculer det(kA)")
                 sous_menu()
-                options(historique_list,determinant_info,"déterminant",("Matrice initiale A",(matrice)),("n = ",len(matrice)),("det(A) = ",determinant(matrice)),("K = ",scalaire),("det(KB) = ",KA))
+                options(historique_list,determinant_info,"déterminant det(kA)",("Matrice initiale A",(matrice)),("n = ",len(matrice)),("det(A) = ",det_a),("K = ",scalaire),("det(KB) = ",KA))
             elif sous_option==5:
-                pass
-
-            elif sous_option==6:
-                pass
-
+                titre("Calculer det(A⁻¹)")
+                if det_a==0:
+                    titre("Note!")
+                    print("--> Elle doit être inversible, c'est-à-dire det(A) ≠ 0.")
+                    clear_avec_msg()
+                    continue
+                print("La matrice initiale :")
+                affichage(matrice)
+                print("--> Resulta finale:")
+                print(f"det(A⁻¹) = {1/det_a:.3f}")
+                historique_list.append("Calculer det(A⁻¹)")
+                sous_menu()
+                options(historique_list,determinant_info,"déterminant",("Matrice initiale A",(matrice)),("Resulta finale\ndet(A⁻¹)",1/det_a))
             elif sous_option==0:
                 os.system("cls" if os.name == "nt" else "clear")
             else:
@@ -333,10 +344,10 @@ while True:
             print("--> Matrice initiale :")
             affichage(matrice)
             det=determinant(matrice)
+            print("--> Résultat :")
+            print()
             # Compare la matrice à sa transposée pour déterminer sa symétrie.
             if Transpose(matrice)==matrice:
-                print("--> Résultat :")
-                print()
                 print("--> On a Aᵀ= :")
                 affichage(Transpose(matrice))
                 print("--> Donc, La matrice est symétrique car Aᵀ = A.")
@@ -344,8 +355,6 @@ while True:
                 sous_menu()
                 options(historique_list,verifier_symetrique_info,"Vérifier symétrique Trace",("Matrice initiale",matrice),("--> On a Aᵀ= :",Transpose(matrice)),("Donc, La matrice est symétrique car Aᵀ = A.",None))
             else:
-                print("--> Résultat :")
-                print()
                 print("--> On a Aᵀ= :")
                 affichage(Transpose(matrice))
                 print("--> Donc, La matrice n'est pas symétrique car Aᵀ ≠ A.")
@@ -357,16 +366,19 @@ while True:
             titre("diagonale")
             print("--> Matrice initiale :")
             affichage(matrice)
+            print("--> Résultat :")
+            print()
+            historique_list.append("Vérifier diagonaleInverse")
             if diagonale(matrice) is True:
                 print("La matrice est diagonale.")
                 print("Donc, elle est inversible.")
+                sous_menu()
+                options(historique_list,diagonale_info,"diagonaleInverse",("Matrice initiale",matrice),("Donc, La matrice est diagonaleInverse\nDonc, elle est inversible.",None))
             else:
                 print("La matrice n'est pas diagonale.")
                 print("Elle ne peut donc pas être considérée comme une matrice diagonale inversible.")
-            historique_list.append("Vérifier diagonaleInverse")
-            sous_menu()
-            options(historique_list,verifier_symetrique_info,"Vérifier symétrique Trace",("Matrice initiale",matrice),("--> On a Aᵀ= :",Transpose(matrice)),("Donc, La matrice est symétrique car Aᵀ = A.",None))
-                 
+                sous_menu()
+                options(historique_list,diagonale_info,"diagonaleInverse",("Matrice initiale",matrice),("La matrice n'est pas diagonale.\nElle ne peut donc pas être considérée comme une matrice diagonale inversible",None))
         #option 15 : trace
         elif option==15:
             matrice=demander_matrice("A",3)
