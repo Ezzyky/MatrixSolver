@@ -72,22 +72,25 @@ def home()->None:
 # Affiche les informations générales sur le projet.
 def infos()->None:
     print(f"""
-        Nom            : EZZYKY
-        Statut         : Étudiant en informatique
+Description :
+Ce programme a été développé en Python dans le cadre d'un projet
+d'algèbre linéaire. Il permet d'effectuer diverses opérations sur
+les matrices ainsi que la résolution de systèmes linéaires.
 
-        Description :
-        Ce programme a été développé en Python dans le cadre d'un
-        projet d'algèbre linéaire. Il permet d'effectuer plusieurs
-        opérations sur les matrices et les systèmes linéaires.
-        
-        --> Jun 24, 2026
 
-        Contact :
-        E-mail         : Abdellahezzyky@gmail.com
-        GitHub         : https://github.com/EZZYKY
-        linkedin       : www.linkedin.com/in/abdellah-ezzyky-92b09a326
-        Version        : 1.0
-        Langage        : Python
+Informations :
+Date de création : 24 juin 2026
+Version          : 1.0
+Langage          : Python
+
+Développeur :
+Nom              : Abdellah Ezzyky
+E-mail           : Abdellahezzyky@gmail.com
+GitHub           : https://github.com/EZZYKY
+LinkedIn         : https://www.linkedin.com/in/abdellah-ezzyky-92b09a326
+
+==============================================================
+
 """)
 # Affiche un titre centré et encadré.
 def titre(txte:str)->None:

@@ -13,6 +13,7 @@ class carree(Exception):
     pass
 class carrees_ordre(Exception):
     pass
+
 # Saisit une matrice et vérifie les contraintes liées à l'opération demandée.
 def prenant_matrice(nom:str="A",flag:int=0,matrice2:list[list[float]]=None,msg:str="soustraction")->list[list[float]]:
     print(f"Saisissez la taille de la matrice {nom}:")
@@ -44,7 +45,8 @@ def prenant_matrice(nom:str="A",flag:int=0,matrice2:list[list[float]]=None,msg:s
     for i in range(lignes):
         for j in range(colonnes):
             Matrice[i][j] = float(input(f"Élément de la ligne {i+1}, colonne {j+1} : "))
-    print("Appuyez sur n'importe quel bouton pour contune...",end="")
+            
+    print("Appuyez sur \"Entre\" bouton pour contune...",end="")
     input()
     os.system("cls" if os.name == "nt" else "clear")
     return Matrice
@@ -61,42 +63,42 @@ def demander_matrice(nom: str="A",falg:int=0,matrice:list[list[float]]=None,msg:
             print()
             titre("Error!")
             print("----> Veuillez entrer un nombre valide.")
-            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            print("Appuyez sur \"Entre\" bouton pour sortie...",end="")
             input()
             os.system("cls" if os.name == "nt" else "clear")
         except MatrixSizeError as e:
             print()
             titre("Error!")
             print(e)
-            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            print("Appuyez sur \"Entre\" bouton pour sortie...",end="")
             input()
             os.system("cls" if os.name == "nt" else "clear")
         except dimensions as i:
             print()
             titre("Error!")
             print(i)
-            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            print("Appuyez sur \"Entre\" bouton pour sortie...",end="")
             input()
             os.system("cls" if os.name == "nt" else "clear")
         except nombreLIGNESmemeDEcolonnes as n:
             print()
             titre("Error!")
             print(n)
-            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            print("Appuyez sur \"Entre\" bouton pour sortie...",end="")
             input()
             os.system("cls" if os.name == "nt" else "clear")
         except carree as e:
             print()
             titre("Error!")
             print(e)
-            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            print("Appuyez sur \"Entre\" bouton pour sortie...",end="")
             input()
             os.system("cls" if os.name == "nt" else "clear")
         except carrees_ordre as e:
             print()
             titre("Error!")
             print(e)
-            print("Appuyez sur n'importe quel bouton pour sortir...",end="")
+            print("Appuyez sur \"Entre\" bouton pour sortie...",end="")
             input()
             os.system("cls" if os.name == "nt" else "clear")
         

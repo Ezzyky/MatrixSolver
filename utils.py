@@ -7,7 +7,7 @@ import os
 import time
 
 # Attend une confirmation de l'utilisateur puis efface l'écran.
-def clear_avec_msg(msg: str="Appuyez sur n'importe quel bouton pour sortir...")->None:
+def clear_avec_msg(msg: str="Appuyez sur \"Entre\" bouton pour contune...")->None:
     print(msg,end="")
     input()
     # Adapte la commande d'effacement au système d'exploitation.
@@ -28,8 +28,8 @@ def historique(Historique:list[str])->None:
 def Quitter()->None:
     titre("""          Merci d'avoir utilisé notre application !
                     À bientôt !  Au revoir !""")
+    clear_avec_msg("Appuyez sur \"Entre\" bouton pour sortie...")
     sys.exit()
-    clear_avec_msg()
 
 # Date utilisée dans le nom des fichiers de sauvegarde.
 time=time.strftime("%d-%m-%Y", time.localtime())
@@ -46,9 +46,9 @@ def ecrire_dans_fichier(titre_operation:str, *elements)->None:
             # Les matrices sont détaillées ligne par ligne, contrairement aux valeurs simples.
             if isinstance(valeur, list): 
                 for ligne in valeur:
-                    f.write(str(ligne) + "\n")
+                    f.write(str(ligne)+"\n")
             else: 
-                f.write(str(valeur) + "\n")
+                f.write(str(valeur)+"\n")
             f.write("\n")
         f.write("="*60 +"\n\n")
 
@@ -80,4 +80,3 @@ def options(historique_list: list[str],fun_de_infos, titre_operation: str=None, 
                 os.system("cls" if os.name == "nt" else "clear")
         else:
                 os.system("cls" if os.name == "nt" else "clear")
-            
