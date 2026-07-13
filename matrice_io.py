@@ -16,6 +16,8 @@ class carrees_ordre(Exception):
 
 # Saisit une matrice et vérifie les contraintes liées à l'opération demandée.
 def prenant_matrice(nom:str="A",flag:int=0,matrice2:list[list[float]]=None,msg:str="soustraction")->list[list[float]]:
+    print("-->Veuillez appuyer sur >>Q<< pour retourner au menu précédent.")
+    print()
     print(f"Saisissez la taille de la matrice {nom}:")
     lignes=int(input("Nombre de lignes : "))
     colonnes=int(input("Nombre de colonnes : "))
@@ -59,13 +61,7 @@ def demander_matrice(nom: str="A",falg:int=0,matrice:list[list[float]]=None,msg:
         titre(f"Veuillez entrer la matrice initiale {nom}.")
         try:
              return prenant_matrice(nom,falg,matrice,msg)
-        except ValueError:
-            print()
-            titre("Error!")
-            print("----> Veuillez entrer un nombre valide.")
-            print("Appuyez sur \"Entre\" bouton pour sortie...",end="")
-            input()
-            os.system("cls" if os.name == "nt" else "clear")
+        
         except MatrixSizeError as e:
             print()
             titre("Error!")

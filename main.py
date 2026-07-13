@@ -46,7 +46,10 @@ while True:
 
         #option 1 = Addition 
         if option==1:
-            matrice=demander_matrice()
+            try:
+                matrice=demander_matrice()
+            except ValueError:
+                continue
             matrice_pour_add=demander_matrice("B",1,matrice,"Addition")
             os.system("cls" if os.name == "nt" else "clear")
             lignes_B=len(matrice_pour_add)
@@ -69,7 +72,10 @@ while True:
 
         #option 2 = Soustraction
         elif option==2:
-            matrice=demander_matrice()
+            try:
+                matrice=demander_matrice()
+            except ValueError:
+                continue
             matrice_pour_oustraction=demander_matrice("B",1,matrice)
             os.system("cls" if os.name == "nt" else "clear")
             lignes_B=len(matrice_pour_oustraction)
@@ -92,7 +98,10 @@ while True:
 
         #option 3 = Multiplication 
         elif option==3:
-            matrice=demander_matrice()
+            try:
+                matrice=demander_matrice()
+            except ValueError:
+                continue
             matrice_pour_m=demander_matrice("B",2,matrice)
             os.system("cls" if os.name == "nt" else "clear") 
             titre("Multiplication")
@@ -114,7 +123,10 @@ while True:
 
         #option 4 = Multiplication par scalaire
         elif option==4:
-            matrice=demander_matrice()
+            try:
+                matrice=demander_matrice()
+            except ValueError:
+                continue
             titre("Multiplication par scalaire")
             try:
                 scalaire=float(input("Veuillez entrer le scalaire à multiplier par la matrice: "))
@@ -135,7 +147,10 @@ while True:
         
         #option 5 = Transposée    
         elif option==5:
-            matrice=demander_matrice()
+            try:
+                matrice=demander_matrice()
+            except ValueError:
+                continue
             titre("Transposée")
             print("--> Matrice initiale :")
             affichage(matrice)
@@ -148,7 +163,10 @@ while True:
             options(historique_list,Transpose_info,"Transposée",("Matrice initiale",matrice),("Résultat de la transposition",matrice_Transpose))
         #option 6= la puissance d'une matrice
         elif option==6:
-            matrice=demander_matrice("A",3)
+            try:
+                matrice:list[list[float]]=demander_matrice("A",3)
+            except ValueError:
+                continue
             titre("la puissance d'une matrice")
             try:
                 N_pour_la_puissance=int(input("Veuillez entrer l'exposant de la matrice :"))
@@ -176,7 +194,10 @@ while True:
 
         #option 7 = reduction de gauss
         elif option == 7:
-            matrice=demander_matrice()
+            try:
+                matrice=demander_matrice()
+            except ValueError:
+                continue
             # La réduction modifie la matrice en place ; cette copie conserve l'état initial.
             matrice_initiale=deepcopy(matrice)
             lignes=len(matrice)
@@ -207,7 +228,10 @@ while True:
             options(historique_list,Reduction_Gauss_info,"reduction de gauss",("Matrice initiale",matrice_initiale),("reduction de gauss resulta finale",matrice))
         #option 10 : rang
         elif option == 10:
-            matrice=demander_matrice()
+            try:
+                matrice=demander_matrice()
+            except ValueError:
+                continue
             matrice_initiale=deepcopy(matrice)
             try:
                 rg=rang(matrice)
@@ -238,7 +262,10 @@ while True:
                 clear_avec_msg("Option invalide.")
                 continue
             os.system("cls")
-            matrice=demander_matrice("A",3)
+            try:
+                matrice=demander_matrice("A",3)
+            except ValueError:
+                continue
             det_a=determinant(matrice)
             if sous_option==1:
                 titre("déterminant det(A)")
@@ -289,8 +316,8 @@ while True:
                 print(f"--> det(A) ={det_a:.1f}, n = {len(matrice)}, K ={scalaire:.1f}.")
                 detKA()
                 print("--> Resulta finale:")
-                KA=(scalaire**len(matrice))*det_a
-                print(f"det({scalaire:.0f}A) = {KA}")
+                KA:float=(scalaire**len(matrice))*det_a
+                print(f"det({scalaire:.0f}A) = {KA:.2f}")
                 historique_list.append("Calculer det(kA)")
                 sous_menu()
                 options(historique_list,determinant_info,"déterminant det(kA)",("Matrice initiale A",(matrice)),("n = ",len(matrice)),("det(A) = ",det_a),("K = ",scalaire),("det(KB) = ",KA))
@@ -315,7 +342,10 @@ while True:
              clear_avec_msg()
         #option: Vérifier inversible
         elif option==12:
-            matrice=demander_matrice("A",3)
+            try:
+                matrice=demander_matrice("A",3)
+            except ValueError:
+                continue
             titre("Vérifier inversible")
             print("--> Matrice initiale :")
             affichage(matrice)
@@ -339,7 +369,10 @@ while True:
                 options(historique_list,verifier_inversible_info,"Vérifier inversible",("Matrice initiale",matrice),("Résultat\nOn a det(A) = ",det),("Donc, la matrice n'est pas inversible car det(A) = ",0))
         # option : Vérifier symétrique Trace
         elif option==13:
-            matrice=demander_matrice("A",3)
+            try:
+                matrice=demander_matrice("A",3)
+            except ValueError:
+                continue
             titre("Vérifier symétrique Trace")
             print("--> Matrice initiale :")
             affichage(matrice)
@@ -362,7 +395,10 @@ while True:
                 sous_menu()
                 options(historique_list,verifier_symetrique_info,"Vérifier symétrique Trace",("Matrice initiale",matrice),("--> On a Aᵀ= :",Transpose(matrice)),("Donc, La matrice est symétrique car Aᵀ = A.",None))
         elif option == 14:
-            matrice=demander_matrice("A",3)
+            try:
+                matrice=demander_matrice("A",3)
+            except ValueError:
+                continue
             titre("diagonale")
             print("--> Matrice initiale :")
             affichage(matrice)
@@ -381,7 +417,10 @@ while True:
                 options(historique_list,diagonale_info,"diagonaleInverse",("Matrice initiale",matrice),("La matrice n'est pas diagonale.\nElle ne peut donc pas être considérée comme une matrice diagonale inversible",None))
         #option 15 : trace
         elif option==15:
-            matrice=demander_matrice("A",3)
+            try:
+                matrice=demander_matrice("A",3)
+            except ValueError:
+                continue
             titre("Trace")
             print("--> Matrice initiale :")
             affichage(matrice)
@@ -392,7 +431,10 @@ while True:
             options(historique_list,Trace_info,"trace",("Matrice initiale",matrice),("Résultat de la trace",trace(matrice)))
         #option 16 : Inverse
         elif option==16:
-            matrice=demander_matrice("A",3)
+            try:
+                matrice=demander_matrice("A",3)
+            except ValueError:
+                continue
             titre("Inverse")
             # Une matrice non inversible est signalée par une exception pour préserver le menu.
             try:
