@@ -1,11 +1,12 @@
 # Fonctions d'affichage des menus, messages et aides de l'application.
-from time import strftime,localtime
+from time import strftime, localtime
 
 # Date affichée dans le sous-menu de sauvegarde.
-time=strftime("%d-%m-%Y", localtime())
+time = strftime("%d-%m-%Y", localtime())
 # Affiche le menu principal des opérations disponibles.
 
-def menu()->None:
+
+def menu() -> None:
     # Présente les commandes, regroupées par domaine, dans une seule vue.
     print("""
                 =========================================================
@@ -38,10 +39,11 @@ def menu()->None:
                                                                                            
 """)
 
+
 # Affiche la page d'accueil et la présentation de l'application.
-def home()->None:
-     # Affiche la bannière et les consignes avant l'accès aux fonctionnalités.
-     print("""
+def home() -> None:
+    # Affiche la bannière et les consignes avant l'accès aux fonctionnalités.
+    print("""
            
                 ███╗   ███╗ █████╗ ████████╗██████╗ ██╗██╗  ██╗
                 ████╗ ████║██╔══██╗╚══██╔══╝██╔══██╗██║╚██╗██╔╝
@@ -69,8 +71,10 @@ def home()->None:
         coefficients réels (float).
             ==========================================================
     """)
+
+
 # Affiche les informations générales sur le projet.
-def infos()->None:
+def infos() -> None:
     print(f"""
 Description :
 Ce programme a été développé en Python dans le cadre d'un projet
@@ -92,17 +96,20 @@ LinkedIn         : https://www.linkedin.com/in/abdellah-ezzyky-92b09a326
 ==============================================================
 
 """)
+
+
 # Affiche un titre centré et encadré.
-def titre(txte:str)->None:
+def titre(txte: str) -> None:
     print()
     # Une largeur fixe maintient l'alignement des titres dans le terminal.
-    print("="*60)
+    print("=" * 60)
     print(txte.center(60))
-    print("="*60)
+    print("=" * 60)
     print("\n")
 
+
 # Affiche les actions disponibles après une opération.
-def sous_menu()->None:
+def sous_menu() -> None:
     # Insère la date du jour dans le nom de fichier proposé à l'utilisateur.
     print(f"""
           
@@ -112,8 +119,9 @@ def sous_menu()->None:
     [3]. Explications        
 ==========================================================  """)
 
+
 # Affiche le sous-menu des propriétés du déterminant.
-def sous_detiminent()->None:
+def sous_detiminent() -> None:
     print("""
 ==========================================================
           CALCUL DES PROPRIÉTÉS DU DÉTERMINANT
@@ -132,9 +140,11 @@ la propriété choisie et affichera le déterminant obtenu.
 
 ==========================================================
 """)
+
+
 # --- Aides pédagogiques sur les propriétés et opérations matricielles ---
 # Présente le critère permettant de vérifier l'inversibilité.
-def verifier_inversible_info()->None:
+def verifier_inversible_info() -> None:
     print("""
 ==========================================================
            VÉRIFICATION DE L'INVERSIBILITÉ
@@ -160,8 +170,10 @@ Résultat :
 • Si det(A) = 0 :
   → La matrice n'est pas inversible.
 """)
+
+
 # Explique la notion de matrice inversible.
-def inversible_info()->None:
+def inversible_info() -> None:
     print("""
 ==========================================================
          VÉRIFIER SI UNE MATRICE EST INVERSIBLE
@@ -205,8 +217,10 @@ Comme det(A) = 0, la matrice n'est pas inversible.
 ==========================================================
 
 """)
+
+
 # Présente le critère de symétrie d'une matrice.
-def verifier_symetrique_info()->None:
+def verifier_symetrique_info() -> None:
     print("""
 ==========================================================
            VÉRIFICATION D'UNE MATRICE SYMÉTRIQUE
@@ -235,8 +249,10 @@ Résultat :
 • Si A ≠ Aᵀ :
   → La matrice n'est pas symétrique.
 """)
+
+
 # Affiche l'aide relative à l'addition de matrices.
-def Addition_info()->None:
+def Addition_info() -> None:
     print("""
 ==========================================================
                    INFORMATIONS SUR
@@ -269,8 +285,10 @@ Chaque élément est calculé comme suit :
 4 + 8 = 12
 ==========================================================
 """)
+
+
 # Affiche l'aide relative à la soustraction de matrices.
-def Soustraction_info()->None:
+def Soustraction_info() -> None:
     print("""
 ==========================================================
              INFORMATIONS SUR LA SOUSTRACTION
@@ -306,8 +324,10 @@ dimensions que les deux matrices d'origine.
 
 ==========================================================
 """)
+
+
 # Affiche l'aide relative au produit de matrices.
-def Multiplication_info()->None:
+def Multiplication_info() -> None:
     print("""
 ==========================================================
           INFORMATIONS SUR LA MULTIPLICATION
@@ -356,21 +376,27 @@ A × B = ⎡19  22⎤
 
 ==========================================================
 """)
-def detKA ()->None:
+
+
+def detKA() -> None:
     print("┌──────────────────────────────────────────────┐")
     print("│             Opérations effectuées            │")
     print("├──────────────────────────────────────────────┤")
     print("│               det(kA) = kⁿ det(A)            │")
     print("└──────────────────────────────────────────────┘")
     print()
+
+
 # Affiche la formule utilisée pour calculer l'inverse d'une matrice.
-def formul_inverse()->None:
+def formul_inverse() -> None:
     print("┌──────────────────────────────────────────────┐")
     print("│      FORMULE DE L'INVERSE D'UNE MATRICE      │")
     print("├──────────────────────────────────────────────┤")
     print("│        A⁻¹ = (1/det(A)) × com(A)ᵀ            │")
     print("└──────────────────────────────────────────────┘")
     print()
+
+
 # Affiche l'aide détaillée relative à l'inverse d'une matrice.
 def invers_info():
     print("""
@@ -417,6 +443,8 @@ Si det(A) = 0, la matrice est dite singulière
 et elle n'admet pas d'inverse.
 ==========================================================
 """)
+
+
 def rang_info():
     print("""
 ==========================================================
@@ -491,8 +519,10 @@ rg(A) = 2
 
 ==========================================================
 """)
+
+
 # Affiche l'aide relative à la multiplication par un scalaire.
-def Multiplication_par_scalaire_info()->None:
+def Multiplication_par_scalaire_info() -> None:
     print("""
 ==========================================================
       INFORMATIONS SUR LA MULTIPLICATION
@@ -544,8 +574,10 @@ matrice initiale.
 
 ==========================================================
 """)
+
+
 # Affiche l'aide relative à la transposition d'une matrice.
-def Transpose_info()->None:
+def Transpose_info() -> None:
     print("""
 ==========================================================
              INFORMATIONS SUR LA TRANSPOSÉE
@@ -585,8 +617,10 @@ elle change uniquement leur position.
 
 ==========================================================
 """)
+
+
 # Affiche l'aide relative à la puissance d'une matrice.
-def puissance_info()->None:
+def puissance_info() -> None:
     print("""
 ==========================================================
           INFORMATIONS SUR LA PUISSANCE
@@ -641,6 +675,8 @@ par elle-même.
 
 ==========================================================
 """)
+
+
 # Affiche l'aide relative à la réduction de Gauss.
 def Reduction_Gauss_info():
     print("""
@@ -689,8 +725,10 @@ d'analyser la matrice ou de résoudre le système associé.
 
 ==========================================================
 """)
+
+
 # Affiche l'aide relative à la trace d'une matrice.
-def diagonale_info()-> None:
+def diagonale_info() -> None:
     print("""
 ==========================================================
            INFORMATIONS SUR LA MATRICE DIAGONALE
@@ -729,6 +767,8 @@ Propriétés :
 ==========================================================
 
 """)
+
+
 def Trace_info():
     print("""
 ==========================================================
@@ -767,6 +807,8 @@ La trace est un nombre réel ou entier, et non une matrice.
 
 ==========================================================
 """)
+
+
 # Affiche l'aide relative au calcul du déterminant.
 def determinant_info():
     print("""
