@@ -153,23 +153,23 @@ def affichage(matrice: list[int]) -> None:
 
 # Échange la première ligne avec une ligne dont le premier élément est non nul.
 # i dont need it for now
-def swap(matrice):
-    lignes = len(matrice)
-    colonnes = len(matrice[0])
-    # Recherche un pivot non nul dans la première colonne avant la permutation.
-    if matrice[0][0] == 0:
-        for i in range(lignes):
-            if matrice[i][0] != 0:
-                index = i
-                break
-        for i in range(colonnes):
-            temp = matrice[0][i]
-            matrice[0][i] = matrice[index][i]
-            matrice[index][i] = temp
-        print("_________Opérations effectuées sur les lignes :_________")
-        print()
-        print(f"L1 ​↔ L​{index+1}")
-    return matrice
+# def swap(matrice):
+#     lignes = len(matrice)
+#     colonnes = len(matrice[0])
+#     # Recherche un pivot non nul dans la première colonne avant la permutation.
+#     if matrice[0][0] == 0:
+#         for i in range(lignes):
+#             if matrice[i][0] != 0:
+#                 index = i
+#                 break
+#         for i in range(colonnes):
+#             temp = matrice[0][i]
+#             matrice[0][i] = matrice[index][i]
+#             matrice[index][i] = temp
+#         print("_________Opérations effectuées sur les lignes :_________")
+#         print()
+#         print(f"L1 ​↔ L​{index+1}")
+#     return matrice
 
 
 # Applique et affiche les opérations d'élimination sous un pivot de Gauss.
